@@ -8,9 +8,10 @@ import { UsuarioService } from './modules/usuario/services/usuario.service';
 import { UsuarioModule } from './modules/usuario/usuario.module';
 import { VeiculoModule } from './modules/veiculo/veiculo.module';
 import { ViagemModule } from './modules/viagem/viagem.module';
+import { TipoVeiculoModule } from './modules/tipo-veiculo/tipo-veiculo.module';
 
 @Module({
-  imports: [UsuarioModule, ViagemModule, JogoModule, VeiculoModule, AvaliacaoModule],
+  imports: [UsuarioModule, ViagemModule, JogoModule, VeiculoModule, AvaliacaoModule, TipoVeiculoModule],
   controllers: [AppController, UsuarioController],
   providers: [AppService, UsuarioService],
 })
