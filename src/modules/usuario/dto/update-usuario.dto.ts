@@ -5,6 +5,6 @@ export class UpdateUsuarioDto {
     cpf?: string;
     senha?: string;
     imagem?: string;
-    avaliacao?: number;
-    veiculos?: string[];
+    data_nascimento?: Date;
+    veiculos?: number[];
 }

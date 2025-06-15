@@ -1,4 +1,6 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { Avaliacao } from '../avaliacao/avaliacao.entity';
+import { Veiculo } from '../veiculo/veiculo.entity';
 
 @Entity('usuario')
 export class Usuario{
@@ -17,19 +19,22 @@ export class Usuario{
 
     @Column({ nullable: false })
     cpf: string;
-
+    
     @Column({ nullable: false })
     senha: string;
     
     @Column({ nullable: true, type: 'varchar', length: 255 })
     imagem: string;
 
+    @Column({ type: 'date', nullable: false})
+    data_nascimento: Date;
+
     @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
     data_criacao: Date;
 
-    @Column({ type: 'float', default: 0 })
-    avaliacao: number;
+    @OneToMany(()=> Avaliacao, avaliacao => avaliacao.usuario_reportado, {nullable: true})
+    avaliacoes: Avaliacao[];
 
-    @Column("simple-array", { nullable: true })
-    veiculos: string[];
+    @OneToMany(()=> Veiculo, veiculo=> veiculo.usuario, {nullable: true} )
+    veiculos: Veiculo[];
 }

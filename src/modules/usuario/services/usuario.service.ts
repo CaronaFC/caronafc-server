@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { Veiculo } from 'src/modules/veiculo/veiculo.entity';
+import { In, Repository } from 'typeorm';
 import { CreateUsuarioDto } from '../dto/create-usuario.dto';
 import { UpdateUsuarioDto } from '../dto/update-usuario.dto';
 import { Usuario } from '../usuario.entity';
@@ -10,19 +11,33 @@ export class UsuarioService {
   constructor(
     @InjectRepository(Usuario)
     private readonly usuarioRepository: Repository<Usuario>,
+    @InjectRepository(Veiculo)
+    private readonly veiculoRepository: Repository<Veiculo>
   ) {}
 
-  create(createUsuarioDto: CreateUsuarioDto): Promise<Usuario> {
-    const usuario = this.usuarioRepository.create(createUsuarioDto);
-    return this.usuarioRepository.save(usuario);
+  async create(createUsuarioDto: CreateUsuarioDto): Promise<Usuario> {
+  const { veiculos, ...rest } = createUsuarioDto;
+  const usuario = this.usuarioRepository.create(rest);
+
+  if (veiculos && veiculos.length > 0) {
+    const veiculosEntities = await this.veiculoRepository.findBy({
+      id: In(veiculos.map(Number)), // Certifique-se que são números
+    });
+    usuario.veiculos = veiculosEntities;
   }
 
+  return this.usuarioRepository.save(usuario);
+}
+
   findAll(): Promise<Usuario[]> {
-    return this.usuarioRepository.find();
+    return this.usuarioRepository.find({ relations: ['veiculos'] });
   }
 
   async findOne(id: number): Promise<Usuario> {
-    const usuario = await this.usuarioRepository.findOneBy({ id });
+    const usuario = await this.usuarioRepository.findOne({
+      where: { id },
+      relations: ['veiculos'],
+    });
     if (!usuario) {
       throw new Error(`Usuario with id ${id} not found`);
     }
@@ -30,7 +45,27 @@ export class UsuarioService {
   }
 
   async update(id: number, updateUsuarioDto: UpdateUsuarioDto): Promise<Usuario> {
-    await this.usuarioRepository.update(id, updateUsuarioDto);
+    const usuario = await this.usuarioRepository.findOne({
+      where: { id },
+      relations: ['veiculos','avaliacao'],
+    });
+
+    if (!usuario) {
+      throw new Error('Usuário não encontrado');
+    }
+
+    // Atualiza campos simples
+    Object.assign(usuario, updateUsuarioDto);
+
+    // Atualiza relação de veículos, se enviado no DTO
+    if (updateUsuarioDto.veiculos) {
+      const veiculos = await this.veiculoRepository.findBy({
+        id: In(updateUsuarioDto.veiculos),
+      });
+      usuario.veiculos = veiculos;
+    }
+
+    await this.usuarioRepository.save(usuario);
     return this.findOne(id);
   }
 

@@ -1,4 +1,4 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { TipoVeiculo } from "../tipo-veiculo/tipo-veiculo.entity";
 import { Usuario } from "../usuario/usuario.entity";
 
@@ -20,9 +20,9 @@ export class Veiculo{
     @Column({ nullable: false})
     combustivel: string;
 
-    @Column({ nullable: true})
+    @ManyToOne(()=> TipoVeiculo,{ nullable: true})
     tipoVeiculo: TipoVeiculo;
 
-    @Column({ nullable: true})
+    @ManyToOne(() => Usuario)
     usuario: Usuario;
 }

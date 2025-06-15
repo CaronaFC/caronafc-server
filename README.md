@@ -9,6 +9,7 @@ Welcome to the **CaronaFC Server** project! This is a backend server built with 
 - [Project Structure](#project-structure)
 - [Features](#features)
 - [Getting Started](#getting-started)
+- [Running with Docker](#running-with-docker)
 - [Scripts](#scripts)
 - [Testing](#testing)
 - [Deployment](#deployment)
@@ -26,18 +27,20 @@ caronafc-server/
 ├── src/
 │   ├── app.module.ts
 │   ├── main.ts
-│   ├── config/
 │   ├── modules/
-│   │   ├── auth/
-│   │   ├── user/
-│   │   ├── carona/
-│   │   └── ... (other feature modules)
-│   ├── common/
-│   └── ... (other shared code)
+│   │   ├── avaliacao/
+│   │   ├── jogo/
+│   │   ├── tipo-veiculo/
+│   │   ├── usuario/
+│   │   ├── veiculo/
+│   │   └── viagem/
+│   └── ...
 ├── test/
 │   └── ... (e2e and unit tests)
 ├── .env
 ├── .gitignore
+├── docker-compose.yml
+├── Dockerfile
 ├── package.json
 ├── tsconfig.json
 ├── README.md
@@ -45,11 +48,11 @@ caronafc-server/
 ```
 
 - **src/**: Main source code for the server.
-- **modules/**: Feature modules (authentication, user, carona, etc).
-- **config/**: Configuration files (database, environment, etc).
-- **common/**: Shared utilities, decorators, filters, etc.
+- **modules/**: Feature modules (usuário, veículo, avaliação, etc).
 - **test/**: Unit and end-to-end tests.
 - **.env**: Environment variables.
+- **docker-compose.yml**: Docker Compose configuration for app and database.
+- **Dockerfile**: Docker build instructions.
 - **package.json**: Project dependencies and scripts.
 
 ---
@@ -70,26 +73,58 @@ caronafc-server/
 
 1. **Clone the repository:**
 
-  ```bash
-  git clone https://github.com/your-org/caronafc-server.git
-  cd caronafc-server
-  ```
+   ```bash
+   git clone https://github.com/your-org/caronafc-server.git
+   cd caronafc-server
+   ```
 
 2. **Install dependencies:**
 
-  ```bash
-  npm install
-  ```
+   ```bash
+   npm install
+   ```
 
 3. **Configure environment variables:**
 
-  Copy `.env.example` to `.env` and update the values as needed.
+   Copy `.env.example` to `.env` and update the values as needed.  
+   Exemplo de `.env`:
+   ```
+   DATABASE_HOST=db
+   DATABASE_PORT=5432
+   DATABASE_USER=root
+   DATABASE_PASSWORD=caronafc
+   DATABASE_NAME=caronafc
+   ```
 
 4. **Run the development server:**
 
-  ```bash
-  npm run start:dev
-  ```
+   ```bash
+   npm run start:dev
+   ```
+
+---
+
+## Running with Docker
+
+O projeto já está pronto para rodar com Docker e Docker Compose.
+
+1. **Certifique-se de ter o Docker e Docker Compose instalados.**
+
+2. **Configure seu arquivo `.env`** (veja exemplo acima).
+
+3. **Suba os containers:**
+
+   ```bash
+   docker-compose up --build
+   ```
+
+   Isso irá:
+   - Subir um container do PostgreSQL na porta 5433 do host.
+   - Subir o backend NestJS na porta 3000 do host.
+   - Usar as variáveis do seu `.env` para conectar o app ao banco.
+
+4. **Acesse a API em:**  
+   [http://localhost:3000](http://localhost:3000)
 
 ---
 
@@ -121,13 +156,6 @@ caronafc-server/
 
 See the [NestJS deployment documentation](https://docs.nestjs.com/deployment) for best practices.
 
-To deploy using [Mau](https://mau.nestjs.com):
-
-```bash
-npm install -g @nestjs/mau
-mau deploy
-```
-
 ---
 
 ## Resources
@@ -157,4 +185,4 @@ Nest is an MIT-licensed open source project. Support is welcome via [Open Collec
 
 ## License
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE)

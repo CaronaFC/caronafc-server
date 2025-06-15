@@ -13,6 +13,9 @@ export class Jogo{
     // origem: Time;
 
     @Column({ nullable: false})
+    descricao: string;
+
+    @Column({ nullable: false})
     origem_lat: number;
 
     @Column({ nullable: false})

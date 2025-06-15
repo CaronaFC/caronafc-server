@@ -1,4 +1,4 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinTable, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { Jogo } from "../jogo/jogo.entity";
 import { Usuario } from "../usuario/usuario.entity";
 
@@ -8,13 +8,14 @@ export class Viagem{
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column({ nullable:false })
+    @ManyToOne(() => Usuario, { nullable: false})
     motorista: Usuario;
 
-    @Column({ nullable:false })
-    passageiro: Usuario;
+    @Column(() => Usuario)
+    @JoinTable()
+    passageiro: Usuario[];
 
-    @Column({ nullable: false})
+    @ManyToOne(() => Jogo,{ nullable: false})
     jogo: Jogo;
 
     @Column({ nullable: false})
