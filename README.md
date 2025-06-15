@@ -57,6 +57,20 @@ caronafc-server/
 
 ---
 
+## Bibliotecas Utilizadas
+
+- **@nestjs/core, @nestjs/common, @nestjs/typeorm** — Framework principal e integração com TypeORM.
+- **typeorm** — ORM para Node.js, utilizado para abstração e manipulação do banco de dados.
+- **pg** — Driver oficial do PostgreSQL para Node.js.
+- **@nestjs/swagger** — Integração do Swagger para documentação automática da API REST.
+- **@nestjs/config** — Gerenciamento de variáveis de ambiente e configuração.
+- **class-validator, class-transformer** — Validação e transformação de DTOs.
+- **dotenv** — Carregamento de variáveis de ambiente a partir do arquivo `.env`.
+- **Jest** — Testes unitários e e2e.
+- **Docker, Docker Compose** — Containerização da aplicação e do banco de dados.
+
+> Consulte o arquivo `package.json` para a lista
+
 ## Features
 
 - User authentication and registration
