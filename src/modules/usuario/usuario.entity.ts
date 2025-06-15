@@ -1,5 +1,4 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
-import { Avaliacao } from '../avaliacao/avaliacao.entity';
 
 @Entity('usuario')
 export class Usuario{
@@ -28,8 +27,8 @@ export class Usuario{
     @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
     data_criacao: Date;
 
-    @Column({ nullable: true })
-    avaliacao: Avaliacao;
+    @Column({ type: 'float', default: 0 })
+    avaliacao: number;
 
     @Column("simple-array", { nullable: true })
     veiculos: string[];

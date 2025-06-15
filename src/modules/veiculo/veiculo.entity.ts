@@ -1,4 +1,5 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { TipoVeiculo } from "../tipo-veiculo/tipo-veiculo.entity";
 import { Usuario } from "../usuario/usuario.entity";
 
 @Entity('veiculo')
@@ -19,9 +20,9 @@ export class Veiculo{
     @Column({ nullable: false})
     combustivel: string;
 
-    @Column()
-    tipo: TipoVeiculo;
+    @Column({ nullable: true})
+    tipoVeiculo: TipoVeiculo;
 
-    @Column()
+    @Column({ nullable: true})
     usuario: Usuario;
 }
