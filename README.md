@@ -34,9 +34,20 @@ caronafc-server/
 │   │   ├── usuario/
 │   │   ├── veiculo/
 │   │   └── viagem/
-│   └── ...
+│   ├── app.controller.ts
+│   ├── app.module.ts
+│   ├── app.service.ts
+│   └── main.ts
 ├── test/
-│   └── ... (e2e and unit tests)
+│   ├── avaliacao/
+│   ├── jogo/
+│   ├── tipo-veiculo/
+│   ├── usuario/
+│   ├── veiculo/
+│   ├── viagem/
+│   ├── app.controller.spec.ts
+│   ├── app.e2e-spec.ts
+│   └── jest-e2e.json
 ├── .env
 ├── .gitignore
 ├── docker-compose.yml
@@ -70,6 +81,61 @@ caronafc-server/
 - **Docker, Docker Compose** — Containerização da aplicação e do banco de dados.
 
 > Consulte o arquivo `package.json` para a lista
+
+## Relacionamento do Banco de Dados
+
+### Usuário (`Usuario`)
+- **Um usuário pode cadastrar vários veículos**  
+  - Relacionamento: **OneToMany**  
+  - Exemplo:  
+    - Um usuário possui uma lista de veículos (`veiculos: Veiculo[]`)
+    - Cada veículo pertence a um único usuário (`usuario: Usuario`)
+
+### Veículo (`Veiculo`)
+- **Cada veículo pertence a um único usuário**
+  - Relacionamento: **ManyToOne**
+  - Exemplo:
+    - Campo na entidade `Veiculo`: `@ManyToOne(() => Usuario) usuario: Usuario;`
+
+### Viagem (`Viagem`)
+- **Cada viagem tem um motorista**
+  - Relacionamento: **ManyToOne**
+  - Exemplo:
+    - Campo na entidade `Viagem`: `@ManyToOne(() => Usuario) motorista: Usuario;`
+- **Cada viagem pode ter vários passageiros**
+  - Relacionamento: **ManyToMany**
+  - Exemplo:
+    - Campo na entidade `Viagem`: `@ManyToMany(() => Usuario) @JoinTable() passageiros: Usuario[];`
+
+### Resumo dos Relacionamentos
+
+- **Usuário 1:N Veículo**
+- **Viagem N:1 Motorista (Usuário)**
+- **Viagem N:M Passageiros (Usuário)**
+
+---
+
+### Exemplo Visual
+
+```
+Usuario
+  ├──< Veiculo (1:N)
+  ├──< Viagem (como motorista, N:1)
+  └──< Viagem (como passageiro, N:M)
+
+Viagem
+  ├── motorista: Usuario (N:1)
+  └── passageiros: Usuario[] (N:M)
+```
+
+---
+
+Esses relacionamentos garantem que:
+- Um usuário pode cadastrar vários veículos.
+- Uma viagem sempre tem um motorista (usuário).
+- Uma viagem pode ter vários passageiros (usuários).
+
+Consulte os arquivos de entidade no diretório `src/modules/` para ver a implementação detalhada.
 
 ## Features
 
