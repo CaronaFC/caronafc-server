@@ -33,6 +33,12 @@ export class UsuarioService {
     return this.usuarioRepository.find({ relations: ['veiculos'] });
   }
 
+  async findOneByName(name: string): Promise<Usuario> {
+    const usuario = await this.usuarioRepository.findOneBy({
+      
+    })
+  }
+
   async findOne(id: number): Promise<Usuario> {
     const usuario = await this.usuarioRepository.findOne({
       where: { id },
