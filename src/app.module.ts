@@ -10,7 +10,6 @@ import { UsuarioController } from './modules/usuario/controller/usuario.controll
 import { UsuarioModule } from './modules/usuario/usuario.module';
 import { VeiculoModule } from './modules/veiculo/veiculo.module';
 import { ViagemModule } from './modules/viagem/viagem.module';
-import { AuthModule } from './modules/auth/auth.module';
 
 
 @Module({
@@ -33,8 +32,7 @@ import { AuthModule } from './modules/auth/auth.module';
       database: process.env.DATABASE_NAME || 'nestdb',
       entities: [__dirname + '/modules/**/*.entity{.ts,.js}'],
       synchronize: true, // ativar false ao ativar modo produção
-    }),
-    AuthModule
+    })
 ],
   controllers: [AppController, UsuarioController],
   providers: [AppService]

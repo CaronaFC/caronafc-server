@@ -22,22 +22,16 @@ export class UsuarioController {
   }
 
   @Get(':id')
-  @ApiOperation({ summary: 'Usuário selecionado'})
-  @ApiResponse({ status: 200, description: 'Lista apenas um usuário'})
   findOne(@Param('id') id: string) {
     return this.usuarioService.findOne(+id);
   }
 
   @Patch(':id')
-  @ApiOperation({ summary: 'Atualiza o usuário'})
-  @ApiResponse({ status: 200, description: 'Usuário atualizado'})
   update(@Param('id') id: string, @Body() updateUsuarioDto: UpdateUsuarioDto) {
     return this.usuarioService.update(+id, updateUsuarioDto);
   }
 
   @Delete(':id')
-  @ApiOperation({ summary: 'Deleta o usuário'})
-  @ApiResponse({ status: 200, description: 'Usuário deletado'})
   remove(@Param('id') id: string) {
     return this.usuarioService.remove(+id);
   }
