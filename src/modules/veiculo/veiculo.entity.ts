@@ -1,4 +1,4 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { TipoVeiculo } from "../tipo-veiculo/tipo-veiculo.entity";
 import { Usuario } from "../usuario/usuario.entity";
 
@@ -21,8 +21,10 @@ export class Veiculo{
     combustivel: string;
 
     @ManyToOne(()=> TipoVeiculo,{ nullable: true})
+    @JoinColumn({ name: 'tipoVeiculoId'})
     tipoVeiculo: TipoVeiculo;
 
-    @ManyToOne(() => Usuario)
+    @ManyToOne(() => Usuario, {nullable: false})
+    @JoinColumn({ name: 'usuario_id'})
     usuario: Usuario;
 }

@@ -1,0 +1,119 @@
+[33mcommit a94ccaac190aaf3e9ee15f4199c98873bf2438a5[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Renan Freitas Dos Anjos <r.freitas.dos.anjos@avanade.com>
+Date:   Wed Jun 18 22:53:05 2025 -0300
+
+    Fix: create authentication
+
+[33mcommit 4276c0acd4fc47d4902feadfeeabb37a2da2846d[m
+Author: Renan Freitas Dos Anjos <r.freitas.dos.anjos@avanade.com>
+Date:   Wed Jun 18 11:17:25 2025 -0300
+
+    feat: create module auth
+
+[33mcommit 294287b8bef7339b3eceebd0d2f23c9fc2e28b27[m
+Author: Renan Freitas <renan.freitas.anjos@gmail.com>
+Date:   Sun Jun 15 20:04:15 2025 -0300
+
+    fix: add exemplo relacionamento
+
+[33mcommit 40a93aa20c4e1f132689b06775309fcb93e23b37[m
+Author: Renan Freitas <renan.freitas.anjos@gmail.com>
+Date:   Sun Jun 15 19:53:48 2025 -0300
+
+    fix: readme.md add bibliotecas utilizadas
+
+[33mcommit a588e3b644823c23410126a39d2fae60bc853cfc[m
+Author: Renan Freitas <renan.freitas.anjos@gmail.com>
+Date:   Sun Jun 15 19:49:57 2025 -0300
+
+    config: swagger router
+
+[33mcommit 0e509d3bade7f6390e34106c0ceef4cce493260b[m
+Author: Renan Freitas <renan.freitas.anjos@gmail.com>
+Date:   Sun Jun 15 19:30:47 2025 -0300
+
+    fix: create get,post, delete and update for usuario
+
+[33mcommit 9002d8e9ab808b016b302b0831261722a9ed0928[m
+Author: Renan Freitas <renan.freitas.anjos@gmail.com>
+Date:   Sun Jun 15 19:29:37 2025 -0300
+
+    feat: created directory for DTO avaliacao
+
+[33mcommit 615430b23878b8c0679a32e0c9590a89f611c626[m
+Author: Renan Freitas <renan.freitas.anjos@gmail.com>
+Date:   Sun Jun 15 19:28:31 2025 -0300
+
+    config: initialize project using docker
+
+[33mcommit 0620689db24363824ae090d2271093e3977ec2de[m
+Author: Renan Freitas <renan.freitas.anjos@gmail.com>
+Date:   Sun Jun 15 16:18:19 2025 -0300
+
+    feat: create tipo-veiculo entity
+
+[33mcommit ee80464170b733a997469a2c36ccd11082497487[m
+Author: Renan Freitas <renan.freitas.anjos@gmail.com>
+Date:   Sun Jun 15 15:56:10 2025 -0300
+
+    feat: create tipo-veiculo
+
+[33mcommit 62253bae86f0726f9193f5eeaf0bdd2669f0e5b8[m
+Author: Renan Freitas <renan.freitas.anjos@gmail.com>
+Date:   Sun Jun 15 15:54:09 2025 -0300
+
+    fix: moved controller and services test to test/tipoVeiculo/
+
+[33mcommit b0789778a93598e4732ccb7a80a5bfe6fcc2c1c9[m
+Author: Renan Freitas <renan.freitas.anjos@gmail.com>
+Date:   Sun Jun 15 15:37:49 2025 -0300
+
+    fix: fix create-usuario and update-usuario
+
+[33mcommit 5c8729879f2d3642e0374f6c157891e0ae5b57fa[m
+Author: Renan Freitas <renan.freitas.anjos@gmail.com>
+Date:   Sun Jun 15 15:35:47 2025 -0300
+
+    feat: created create-jogo.dto and update-jogo.dto
+
+[33mcommit a4e9bab1cbd1ea70cc0b72f405d73b8f9ef6dda4[m
+Author: Renan Freitas <renan.freitas.anjos@gmail.com>
+Date:   Sun Jun 15 14:08:42 2025 -0300
+
+    fix: moved app.c.spec for test/
+
+[33mcommit f1b90773c93972adfcfea54f0327c537221a53a3[m
+Author: Renan Freitas <renan.freitas.anjos@gmail.com>
+Date:   Sun Jun 15 14:05:54 2025 -0300
+
+    fix: rescribe documentation
+
+[33mcommit ce11d55af641d3064d8c4d178e1e53080d93115b[m
+Author: Renan Freitas <renan.freitas.anjos@gmail.com>
+Date:   Sun Jun 15 14:02:57 2025 -0300
+
+    config: add config project
+
+[33mcommit 9fd45dcb1c62ab57ddbadf6f3d0e4de6d7e9dfe1[m
+Author: Renan Freitas <renan.freitas.anjos@gmail.com>
+Date:   Sun Jun 15 14:01:37 2025 -0300
+
+    feat: created entity avaliacao
+
+[33mcommit 114fd6d06bf049acda0815115f87604b18c8f756[m
+Author: Renan Freitas <renan.freitas.anjos@gmail.com>
+Date:   Sun Jun 15 14:01:06 2025 -0300
+
+    fix: moved tests for test/entities
+
+[33mcommit 495ab8295734905d6028a54b428c1aa34bf53297[m
+Author: Renan Freitas <renan.freitas.anjos@gmail.com>
+Date:   Sun Jun 15 13:54:36 2025 -0300
+
+    feat: created avaliacao, jogo, usuario, veiculo, viagem
+
+[33mcommit 1312af96274297ca1f43371c012551f263303fa4[m
+Author: Renan Freitas <renan.freitas.anjos@gmail.com>
+Date:   Sun Jun 15 13:53:30 2025 -0300
+
+    Inital commit
