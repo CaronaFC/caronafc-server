@@ -7,5 +7,5 @@ export class TipoVeiculo{
     id: number;
 
     @Column()
-    nome: String;
+    descricao: String;
 }
