@@ -5,6 +5,6 @@ export class CreateUsuarioDto {
     cpf: string;
     senha: string;
     imagem?: string;
-    data_nascimento: Date;
+    data_nascimento?: Date;
     veiculos?: number[];
 }

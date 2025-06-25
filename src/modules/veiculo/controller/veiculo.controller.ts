@@ -1,22 +1,27 @@
 import {
-    Body,
-    Controller,
-    Delete,
-    Get,
-    Param,
-    ParseIntPipe,
-    Patch,
-    Post,
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  ParseIntPipe,
+  Patch,
+  Post,
+  UseGuards,
 } from '@nestjs/common';
-import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiOperation, ApiResponse, ApiTags, ApiUnauthorizedResponse } from '@nestjs/swagger';
 import { CreateVeiculoDto } from '../dto/create-veiculo.dto';
 import { UpdateVeiculoDto } from '../dto/update-veiculo.dto';
 import { VeiculoService } from '../services/veiculo.service';
+import { AuthGuard } from '@nestjs/passport';
 
 @ApiTags('veiculo')
 @Controller('veiculo')
+@ApiBearerAuth()
+@ApiUnauthorizedResponse({ description: 'Token JWT ausente ou inválido' })
+@UseGuards(AuthGuard('jwt'))
 export class VeiculoController {
-  constructor(private readonly veiculoService: VeiculoService) {}
+  constructor(private readonly veiculoService: VeiculoService) { }
 
   @Post()
   @ApiOperation({ summary: 'Cria um novo veículo' })
