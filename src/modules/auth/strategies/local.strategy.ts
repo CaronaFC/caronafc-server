@@ -8,14 +8,14 @@ import { Strategy } from "passport-local";
 export class LocalStrategy extends PassportStrategy(Strategy) {
     constructor(private authService: AuthService) {
         super({
-            usernameField: 'email',
+            usernameField: 'identificador',
             passwordField: 'senha',
         });
     }
 
 
-    validate(email: string, senha: string) {
-        return this.authService.validateUser(email, senha);
+    validate(identificador: string, senha: string) {
+        return this.authService.validateUser(identificador, senha);
     }
 
 
