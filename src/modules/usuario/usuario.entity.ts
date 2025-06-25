@@ -16,10 +16,10 @@ export class Usuario {
     @Column({ nullable: false })
     email: string;
 
-    @Column({ nullable: false })
+    @Column({ nullable: false, unique: true })
     numero: string;
 
-    @Column({ nullable: false })
+    @Column({ nullable: false, unique: true })
     cpf: string;
 
     @Column({ nullable: false })

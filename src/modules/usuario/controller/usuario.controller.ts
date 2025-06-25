@@ -17,14 +17,11 @@ import { ApiBearerAuth, ApiBody, ApiOperation, ApiResponse, ApiTags, ApiUnauthor
 import { CreateUsuarioDto } from '../dto/create-usuario.dto';
 import { UpdateUsuarioDto } from '../dto/update-usuario.dto';
 import { UsuarioService } from '../services/usuario.service';
-import { JwtAuthGuard } from 'src/auth/guards/jwt-auth/jwt-auth.guard';
+import { JwtAuthGuard } from 'src/modules/auth/guards/jwt-auth/jwt-auth.guard';
 import { AuthGuard } from '@nestjs/passport';
 
 @ApiTags('usuario')
 @Controller('usuario')
-@ApiBearerAuth()
-@ApiUnauthorizedResponse({ description: 'Token JWT ausente ou inválido' })
-@UseGuards(AuthGuard('jwt'))
 export class UsuarioController {
   constructor(private readonly usuarioService: UsuarioService) { }
 
@@ -44,6 +41,9 @@ export class UsuarioController {
   @Get()
   @ApiOperation({ summary: 'Lista todos os usuários' })
   @ApiResponse({ status: 200, description: 'Lista de usuários retornada com sucesso' })
+  @ApiBearerAuth()
+  @ApiUnauthorizedResponse({ description: 'Token JWT ausente ou inválido' })
+  @UseGuards(AuthGuard('jwt'))
   async findAll() {
     try {
       const usuarios = await this.usuarioService.findAll();
@@ -57,6 +57,9 @@ export class UsuarioController {
   @ApiOperation({ summary: 'Retorna um único usuário' })
   @ApiResponse({ status: 200, description: 'Usuário encontrado' })
   @ApiResponse({ status: 404, description: 'Usuário não encontrado' })
+  @ApiBearerAuth()
+  @ApiUnauthorizedResponse({ description: 'Token JWT ausente ou inválido' })
+  @UseGuards(AuthGuard('jwt'))
   async findOne(@Param('id', ParseIntPipe) id: number) {
     const usuario = await this.usuarioService.findOne(id);
     if (!usuario) {
@@ -69,6 +72,9 @@ export class UsuarioController {
   @ApiOperation({ summary: 'Atualiza um usuário' })
   @ApiResponse({ status: 200, description: 'Usuário atualizado com sucesso' })
   @ApiResponse({ status: 404, description: 'Usuário não encontrado' })
+  @ApiBearerAuth()
+  @ApiUnauthorizedResponse({ description: 'Token JWT ausente ou inválido' })
+  @UseGuards(AuthGuard('jwt'))
   async update(
     @Param('id', ParseIntPipe) id: number,
     @Body() updateUsuarioDto: UpdateUsuarioDto
@@ -84,6 +90,9 @@ export class UsuarioController {
   @ApiOperation({ summary: 'Remove um usuário' })
   @ApiResponse({ status: 200, description: 'Usuário removido com sucesso' })
   @ApiResponse({ status: 404, description: 'Usuário não encontrado' })
+  @ApiBearerAuth()
+  @ApiUnauthorizedResponse({ description: 'Token JWT ausente ou inválido' })
+  @UseGuards(AuthGuard('jwt'))
   async remove(@Param('id', ParseIntPipe) id: number) {
     const deleted = await this.usuarioService.remove(id);
     if (!deleted) {
@@ -94,6 +103,8 @@ export class UsuarioController {
 
   @UseGuards(JwtAuthGuard)
   @Get("profile")
+  @ApiBearerAuth()
+  @ApiUnauthorizedResponse({ description: 'Token JWT ausente ou inválido' })
   getProfile(@Req() req) {
     return this.usuarioService.findOne(req.user.id)
   }
