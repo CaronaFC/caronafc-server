@@ -11,4 +11,4 @@ import { Veiculo } from './veiculo.entity';
   providers: [VeiculoService],
   controllers: [VeiculoController]
 })
-export class VeiculoModule {}
+export class VeiculoModule { }

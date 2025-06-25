@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Veiculo } from 'src/modules/veiculo/veiculo.entity';
-import { In, Repository } from 'typeorm';
+import { DeleteResult, In, Repository } from 'typeorm';
 import { CreateUsuarioDto } from '../dto/create-usuario.dto';
 import { UpdateUsuarioDto } from '../dto/update-usuario.dto';
 import { Usuario } from '../usuario.entity';
@@ -13,7 +13,7 @@ export class UsuarioService {
     private readonly usuarioRepository: Repository<Usuario>,
     @InjectRepository(Veiculo)
     private readonly veiculoRepository: Repository<Veiculo>,
-  ) {}
+  ) { }
 
   async create(createUsuarioDto: CreateUsuarioDto): Promise<Usuario> {
     const { veiculos, ...rest } = createUsuarioDto;
@@ -43,6 +43,40 @@ export class UsuarioService {
     }
     return usuario;
   }
+
+  async findOneByEmail(email: string): Promise<Usuario> {
+    const usuario = await this.usuarioRepository.findOne({
+      where: { email: email },
+      relations: ['veiculos'],
+    });
+    if (!usuario) {
+      throw new Error(`Usuário com email ${email} não encontrado`);
+    }
+    return usuario;
+  }
+
+  async findOneByNumber(numero: string): Promise<Usuario> {
+    const usuario = await this.usuarioRepository.findOne({
+      where: { numero: numero },
+      relations: ['veiculos'],
+    });
+    if (!usuario) {
+      throw new Error(`Usuário com nome ${numero} não encontrado`);
+    }
+    return usuario;
+  }
+
+  async findOneByPassword(senha: string): Promise<Usuario> {
+    const usuario = await this.usuarioRepository.findOne({
+      where: { senha: senha },
+      relations: ['veiculos'],
+    });
+    if (!usuario) {
+      throw new Error(`Usuário não encontrado`);
+    }
+    return usuario;
+  }
+
 
   async findOne(id: number): Promise<Usuario> {
     const usuario = await this.usuarioRepository.findOne({
@@ -83,7 +117,8 @@ export class UsuarioService {
     return this.findOne(id);
   }
 
-  async remove(id: number): Promise<void> {
-    await this.usuarioRepository.delete(id);
+  async remove(id: number): Promise<DeleteResult> {
+    const result = await this.usuarioRepository.delete(id);
+    return result;
   }
 }
