@@ -31,12 +31,14 @@ export class AuthController {
         const token = authHeader.split(' ')[1];
         try{
             const decoded = await admin.auth().verifyIdToken(token);
-            let user = await this.usuarioService.findOneByEmail(String(decoded.email));
-
+            if (!decoded.email) {
+                throw new UnauthorizedException('No email found in Firebase token');
+            }
+            let user = await this.usuarioService.findOneByEmail(decoded.email);
             if (!user) {
                 const newUser: CreateUsuarioDto = {
                     nome_completo: decoded.name,
-                    email: String(decoded.email),
+                    email: decoded.email,
                     numero: '',
                     cpf: '',
                     senha: '',
@@ -48,6 +50,7 @@ export class AuthController {
             }
             return { id: user.id, email: user.email};
         } catch (e) {
+            console.error('Error in firebaseLogin:', e)
             throw new UnauthorizedException('Invalid Firebase token')
         }
     }

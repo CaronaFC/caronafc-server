@@ -2,12 +2,16 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { AuthService } from 'src/modules/auth/service/auth.service';
 import { UsuarioService } from 'src/modules/usuario/services/usuario.service';
 import { AuthController } from '../../src/modules/auth/controller/auth.controller';
-import admin from '../../src/modules/firebase/firebase-admin';
+
+const verifyIdTokenMock = jest.fn();
 
 jest.mock('../../src/modules/firebase/firebase-admin', () => ({
-  auth: () => ({
-    verifyIdToken: jest.fn(),
-  }),
+  __esModule: true,
+  default: {
+    auth: jest.fn(() => ({
+      verifyIdToken: verifyIdTokenMock,
+    })),
+  },
 }));
 
 // ---------- Unit Test User App -------------- //
@@ -53,24 +57,24 @@ jest.mock('../../src/modules/firebase/firebase-admin', () => ({
 
   it('should create a new user if not found', async () => {
     const mockDecoded = {
-      name: 'Test User',
-      email: 'newuser@example.com',
+      name: 'Renan Freitas',
+      email: 'renanfeitas@gmail.com',
       picture: 'http://img.com/pic.png',
     };
-    (admin.auth().verifyIdToken as jest.Mock).mockResolvedValue(mockDecoded);
+    verifyIdTokenMock.mockResolvedValue(mockDecoded);
     (usuarioService.findOneByEmail as jest.Mock).mockResolvedValue(null);
     (usuarioService.create as jest.Mock).mockResolvedValue({
       id: 1,
-      email: 'newuser@example.com',
+      email: 'renanfeitas@gmail.com',
     });
 
     const result = await controller.firebaseLogin('Bearer validtoken');
-    expect(usuarioService.findOneByEmail).toHaveBeenCalledWith('newuser@example.com');
+    expect(usuarioService.findOneByEmail).toHaveBeenCalledWith('renanfeitas@gmail.com');
     expect(usuarioService.create).toHaveBeenCalledWith(expect.objectContaining({
-      nome_completo: 'Test User',
-      email: 'newuser@example.com',
+      nome_completo: 'Renan Freitas',
+      email: 'renanfeitas@gmail.com',
       imagem: 'http://img.com/pic.png',
     }));
-    expect(result).toEqual({ id: 1, email: 'newuser@example.com' });
+    expect(result).toEqual({ id: 1, email: 'renanfeitas@gmail.com' });
   });
 });
