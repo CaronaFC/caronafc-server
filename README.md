@@ -140,6 +140,7 @@ Consulte os arquivos de entidade no diretório `src/modules/` para ver a impleme
 ## Features
 
 - User authentication and registration
+- **Google/FIrebase login integration**
 - Carpool (carona) creation and management
 - User profile management
 - RESTful API endpoints
@@ -174,6 +175,8 @@ Consulte os arquivos de entidade no diretório `src/modules/` para ver a impleme
    DATABASE_USER=root
    DATABASE_PASSWORD=caronafc
    DATABASE_NAME=caronafc
+
+   JWT_SECRET=82a3f8a665e92a1858fb1bc4897812c31f8cb3b6d01a7846378314f47dfa993a
    ```
 
 4. **Run the development server:**
