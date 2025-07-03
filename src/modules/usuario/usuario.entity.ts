@@ -10,6 +10,9 @@ export class Usuario {
     @PrimaryGeneratedColumn()
     id: number;
 
+    @Column({ nullable: true, unique: true })
+    googleuid?: string;
+
     @Column({ nullable: false })
     nome_completo: string;
 
