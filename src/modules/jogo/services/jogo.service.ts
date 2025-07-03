@@ -26,4 +26,18 @@ export class JogoService {
             return [];
         }
     }
+
+    async buscarTimePorId(id: number): Promise<any> {
+        // Aqui você implementaria a lógica para buscar um time específico por ID
+        try {
+            const response = await fetch(`https://api.soccerdataapi.com/team/?team_id=${id}auth_token=bcaa4c172d7604813d797d51aad6decc7d623cfd`);
+            if (!response.ok) {
+                throw new Error('Erro ao buscar jogo');
+            }
+            return await response.json();
+        } catch (error) {
+            console.error('Erro ao buscar jogo por ID:', error);
+            return null;
+        }
+    }
 }
