@@ -12,7 +12,7 @@ async function fetchMatchesForLeague(leagueId: number) {
         const matches = Array.isArray(response.data) ? response.data : response.data.matches;
         return Array.isArray(matches) ? matches : [];
     } catch (error: any) {
-        console.error(`❌ Erro ao buscar liga ${leagueId}:`, error.message);
+        console.error(`Erro ao buscar liga ${leagueId}:`, error.message);
         return [];
     }
 }
@@ -21,7 +21,7 @@ async function fetchAndSaveAllMatches() {
     const allMatches: any[] = [];
 
     for (const leagueId of leagueIds) {
-        console.log(`📥 Buscando partidas da liga ${leagueId}...`);
+        console.log(`Buscando partidas da liga ${leagueId}...`);
         const matches = await fetchMatchesForLeague(leagueId);
         allMatches.push(...matches);
     }
@@ -29,7 +29,7 @@ async function fetchAndSaveAllMatches() {
     const filePath = path.resolve(__dirname, 'all_matches.json');
     fs.writeFileSync(filePath, JSON.stringify(allMatches, null, 2));
 
-    console.log(`✅ ${allMatches.length} partidas salvas em ${filePath}`);
+    console.log(`${allMatches.length} partidas salvas em ${filePath}`);
 }
 
 fetchAndSaveAllMatches();
