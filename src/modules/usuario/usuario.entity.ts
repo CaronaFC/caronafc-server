@@ -2,8 +2,7 @@ import { BeforeInsert, Column, Entity, OneToMany, PrimaryGeneratedColumn } from 
 import { Avaliacao } from '../avaliacao/avaliacao.entity';
 import { Veiculo } from '../veiculo/veiculo.entity';
 
-import * as bycrypt from "bcrypt"
-
+import * as bcrypt from "bcrypt";
 @Entity('usuario')
 export class Usuario {
 
@@ -45,6 +44,6 @@ export class Usuario {
 
     @BeforeInsert()
     async hashPassword() {
-        this.senha = await bycrypt.hash(this.senha, 10);
+        this.senha = await bcrypt.hash(this.senha, 10);
     }
 }
