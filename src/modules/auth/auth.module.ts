@@ -1,19 +1,22 @@
 import { Module } from '@nestjs/common';
-import { AuthController } from './controller/auth.controller';
-import { AuthService } from './service/auth.service';
+import { ConfigModule } from '@nestjs/config';
 import { JwtModule } from '@nestjs/jwt';
-import jwtConfig from './config/jwt.config';
-import { UsuarioModule } from '../usuario/usuario.module';
-import { UsuarioService } from '../usuario/services/usuario.service';
-import { LocalStrategy } from './strategies/local.strategy';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Usuario } from '../usuario/usuario.entity';
-import { ConfigModule } from '@nestjs/config';
+import { UsuarioModule } from '../usuario/usuario.module';
+import jwtConfig from './config/jwt.config';
+import { AuthController } from './controller/auth.controller';
+import { PasswordResetToken } from './password-reset-token.entity';
+import { AuthService } from './service/auth.service';
 import { JwtStrategy } from './strategies/jwt.strategy';
+import { LocalStrategy } from './strategies/local.strategy';
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([Usuario]),
+    TypeOrmModule.forFeature([
+      Usuario,
+      PasswordResetToken
+    ]),
     JwtModule.registerAsync(jwtConfig.asProvider()),
     UsuarioModule,
     ConfigModule.forFeature(jwtConfig),
