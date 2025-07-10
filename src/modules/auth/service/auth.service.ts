@@ -57,20 +57,16 @@ export class AuthService {
 
 async forgotPassword(email: string): Promise<void> {
         const usuario = await this.usuarioRepository.findOneBy({ email });
-        // Por segurança, não informamos ao cliente se o usuário foi encontrado ou não.
-        // Apenas continuamos o fluxo se ele existir.
         if (!usuario) {
             return;
         }
 
         const rawToken = crypto.randomBytes(32).toString('hex');
         const hashedToken = crypto.createHash('sha256').update(rawToken).digest('hex');
-        const expiresAt = new Date(Date.now() + 3600000); // Token válido por 1 hora
+        const expiresAt = new Date(Date.now() + 3600000); 
 
-        // Deleta tokens antigos para o mesmo usuário, se houver
         await this.tokenRepository.delete({ usuario: { id: usuario.id } });
 
-        // Cria e salva o novo token
         const resetToken = this.tokenRepository.create({
             token: hashedToken,
             usuario,
@@ -84,7 +80,7 @@ async forgotPassword(email: string): Promise<void> {
         await this.mailerService.sendMail({
             to: usuario.email,
             subject: 'Recuperação de Senha - CaronaFC',
-            template: './recuperacao-senha', // Nome do arquivo .hbs
+            template: 'recuperacao-senha', // Nome do arquivo .hbs
             context: {
                 nome: usuario.nome_completo,
                 link: resetLink,
@@ -99,7 +95,7 @@ async forgotPassword(email: string): Promise<void> {
 
         const hashedToken = crypto.createHash('sha256').update(token).digest('hex');
 
-        // Busca o token no banco, incluindo a relação com o usuário
+        
         const resetToken = await this.tokenRepository.findOne({
             where: { token: hashedToken },
             relations: ['usuario'],
@@ -111,13 +107,10 @@ async forgotPassword(email: string): Promise<void> {
 
         const usuario = resetToken.usuario;
         
-        // O hash da nova senha será feito automaticamente pelo hook @BeforeUpdate
-        // na sua entidade Usuario, então apenas atribuímos o novo valor.
+        
         usuario.senha = newPassword;
         
         await this.usuarioRepository.save(usuario);
-
-        // Após o sucesso, deletamos o token para que não possa ser usado novamente.
         await this.tokenRepository.delete(resetToken.id);
     }
 }

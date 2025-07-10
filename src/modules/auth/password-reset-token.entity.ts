@@ -5,7 +5,7 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { Usuario } from '../usuario/usuario.entity'; // <-- Caminho corrigido
+import { Usuario } from '../usuario/usuario.entity';
 
 @Entity('password_reset_tokens')
 export class PasswordResetToken {
@@ -15,7 +15,6 @@ export class PasswordResetToken {
   @Column({ unique: true })
   token: string;
 
-  // O caminho para a entidade Usuario já está correto segundo sua estrutura
   @ManyToOne(() => Usuario, { eager: true, onDelete: 'CASCADE' })
   usuario: Usuario;
 
