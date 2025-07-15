@@ -3,6 +3,8 @@
 /node_modules
 /build
 
+firebase-key.json
+
 # Logs
 logs
 *.log
