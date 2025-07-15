@@ -4,6 +4,7 @@ import { ViagemService } from '../services/viagem.service';
 import { CreateViagemDto } from '../dto/create-viagem.dto';
 import { Viagem } from '../viagem.entity';
 import { AuthGuard } from '@nestjs/passport';
+import { Query } from '@nestjs/common';
 
 @ApiTags('Viagem')
 @Controller('viagem')
@@ -21,13 +22,17 @@ export class ViagemController {
         return this.viagemService.create(dto);
     }
 
-
     @Get()
-    @ApiOperation({ summary: 'Lista todas as viagens' })
+    @ApiOperation({ summary: 'Lista todas as viagens ou filtra por motoristaId' })
     @ApiResponse({ status: 200, description: 'Viagens encontradas com sucesso', type: [Viagem] })
     @ApiResponse({ status: 404, description: 'Nenhuma viagem encontrada' })
-    @ApiOkResponse({ description: 'Lista todas as viagens', type: [Viagem] })
-    async findAll(): Promise<Viagem[]> {
+    @ApiOkResponse({ description: 'Lista todas as viagens ou filtradas por motoristaId', type: [Viagem] })
+    async findAll(
+        @Query('motoristaId') motoristaId?: number
+    ): Promise<Viagem[]> {
+        if (motoristaId) {
+            return this.viagemService.findByMotoristaId(Number(motoristaId));
+        }
         return this.viagemService.findAll();
     }
 }
