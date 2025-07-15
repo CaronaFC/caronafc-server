@@ -1,4 +1,4 @@
-import { Injectable, UnauthorizedException } from '@nestjs/common';
+import { BadRequestException, Injectable, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { compare } from 'bcrypt';
 import { UsuarioService } from 'src/modules/usuario/services/usuario.service';
@@ -55,15 +55,31 @@ export class AuthService {
         return this.jwtService.sign(payload);
     }
 
-async forgotPassword(email: string): Promise<void> {
+    async forgotPassword(email: string): Promise<void> {
         const usuario = await this.usuarioRepository.findOneBy({ email });
         if (!usuario) {
             return;
         }
+        const existingToken = await this.tokenRepository.findOne({
+            where: { usuario: { id: usuario.id } },
+            order: { createdAt: 'DESC' },
+        });
+
+        if (existingToken) {
+            const now = Date.now();
+            const lastRequestTime = existingToken.createdAt.getTime();
+
+            const minInterval = this.configService.get<number>('MIN_INTERVAL_MS') || 86400000;
+
+            if (now - lastRequestTime < minInterval) {
+            // Tempo mínimo ainda não passou
+                throw new BadRequestException('Voce solicitou a redefinição de senha recentemente. Tente novamente mais tarde.');
+        }
+    }
 
         const rawToken = crypto.randomBytes(32).toString('hex');
         const hashedToken = crypto.createHash('sha256').update(rawToken).digest('hex');
-        const expiresAt = new Date(Date.now() + 3600000); 
+        const expiresAt = new Date(Date.now() + 3600000);
 
         await this.tokenRepository.delete({ usuario: { id: usuario.id } });
 
@@ -74,7 +90,7 @@ async forgotPassword(email: string): Promise<void> {
         });
         await this.tokenRepository.save(resetToken);
 
-        const resetLink = `${this.configService.get<string>('FRONTEND_URL')}/reset-password?token=${rawToken}`;
+        const resetLink = `${this.configService.get<string>('FRONTEND_URL')}/--/ResetPassword?token=${rawToken}`;
 
         // Envia o e-mail usando o template Handlebars
         await this.mailerService.sendMail({
