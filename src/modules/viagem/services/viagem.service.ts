@@ -47,4 +47,15 @@ export class ViagemService {
         });
 
     }
+
+    async findByMotoristaId(motoristaId: number): Promise<Viagem[]> {
+        return this.viagemRepository.find({
+            where: {
+                motorista: {
+                    id: motoristaId
+                }
+            },
+            relations: ['motorista', 'passageiros'], // adjust as needed
+        });
+    }
 }

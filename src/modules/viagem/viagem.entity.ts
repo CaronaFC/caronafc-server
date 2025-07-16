@@ -20,10 +20,10 @@ export class Viagem {
     @Column('json', { nullable: false })
     jogo: CreateJogoDto;
 
-    @Column({ nullable: false })
+    @Column('double precision', { nullable: false })
     origem_lat: number;
 
-    @Column({ nullable: false })
+    @Column('double precision', { nullable: false })
     origem_long: number;
 
     @Column({ nullable: true })
