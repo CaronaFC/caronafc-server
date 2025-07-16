@@ -60,44 +60,44 @@ async forgotPassword(email: string): Promise<void> {
         if (!usuario) {
             return;
         }
-
-        const rawToken = crypto.randomBytes(32).toString('hex');
-        const hashedToken = crypto.createHash('sha256').update(rawToken).digest('hex');
-        const expiresAt = new Date(Date.now() + 3600000); 
+        const rawCode = Math.floor(100000 + Math.random() * 900000).toString();
+        const hashedCode = crypto.createHash('sha256').update(rawCode).digest('hex');
+        const expiresAt = new Date(Date.now() + 300000); 
 
         await this.tokenRepository.delete({ usuario: { id: usuario.id } });
 
         const resetToken = this.tokenRepository.create({
-            token: hashedToken,
+            token: hashedCode,
             usuario,
             expiresAt,
         });
         await this.tokenRepository.save(resetToken);
 
-        const resetLink = `${this.configService.get<string>('FRONTEND_URL')}/reset-password?token=${rawToken}`;
+        //const resetLink = `${this.configService.get<string>('FRONTEND_URL')}/reset-password?token=${rawCode}`;
 
         // Envia o e-mail usando o template Handlebars
         await this.mailerService.sendMail({
             to: usuario.email,
-            subject: 'Recuperação de Senha - CaronaFC',
-            template: 'recuperacao-senha', // Nome do arquivo .hbs
+            subject: 'Código de Recuperação de Senha - CaronaFC',
+            template: 'recuperacao-senha', // Nome do caminho do arquivo .hbs
             context: {
                 nome: usuario.nome_completo,
-                link: resetLink,
+                code: rawCode,
+                //link: resetLink,
             },
         });
     }
 
-    async resetPassword(token: string, newPassword: string): Promise<void> {
-        if (!token || !newPassword) {
-            throw new UnauthorizedException('Token ou nova senha inválidos.');
+    async resetPassword(code: string, email: string, newPassword: string): Promise<void> {
+        if (!code || !newPassword || !email) {
+            throw new UnauthorizedException('Dados inválidos.');
         }
 
-        const hashedToken = crypto.createHash('sha256').update(token).digest('hex');
+        const hashedCode = crypto.createHash('sha256').update(code).digest('hex');
 
         
         const resetToken = await this.tokenRepository.findOne({
-            where: { token: hashedToken },
+            where: { token: hashedCode, usuario: { email } },
             relations: ['usuario'],
         });
 
@@ -106,8 +106,6 @@ async forgotPassword(email: string): Promise<void> {
         }
 
         const usuario = resetToken.usuario;
-        
-        
         usuario.senha = newPassword;
         
         await this.usuarioRepository.save(usuario);

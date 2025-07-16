@@ -2,23 +2,30 @@
 <html>
 <head>
     <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-        .container { padding: 20px; max-width: 600px; margin: auto; border: 1px solid #ddd; border-radius: 8px; }
-        .button { display: inline-block; padding: 12px 24px; background-color: #007bff; color: white !important; text-decoration: none; border-radius: 5px; font-weight: bold; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; }
+        .container { padding: 20px; max-width: 600px; margin: auto; border: 1px solid #e0e0e0; border-radius: 8px; text-align: center; }
+        .code {
+            font-size: 36px;
+            font-weight: bold;
+            letter-spacing: 8px;
+            padding: 15px;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            display: inline-block;
+            margin: 20px 0;
+        }
         p { margin-bottom: 15px; }
     </style>
 </head>
 <body>
     <div class="container">
         <h3>Olá, {{nome}}!</h3>
-        <p>Recebemos uma solicitação para redefinir a senha da sua conta no CaronaFC. Se não foi você, pode ignorar este e-mail.</p>
-        <p>Para criar uma nova senha, clique no botão abaixo:</p>
-        <p style="text-align: center;">
-            <a href="{{link}}" class="button">Redefinir Senha</a>
-        </p>
-        <p>Este link é válido por 1 hora.</p>
-        <hr style="border: none; border-top: 1px solid #eee; margin-top: 20px;">
-        <p style="font-size: 12px; color: #888;">Se o botão não funcionar, copie e cole este link no seu navegador: {{link}}</p>
+        <p>Use o código abaixo para redefinir sua senha no CaronaFC.</p>
+        
+        <div class="code">{{code}}</div>
+        
+        <p>Este código é válido por 5 minutos.</p>
+        <p><small>Se você não solicitou isso, por favor, ignore este e-mail.</small></p>
     </div>
 </body>
 </html>

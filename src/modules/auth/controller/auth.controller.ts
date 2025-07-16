@@ -59,7 +59,7 @@ export class AuthController {
     }
 @Post('forgot-password')
     @HttpCode(HttpStatus.OK)
-    @ApiBody({ type: ForgotPasswordDto }) // Para documentação no Swagger
+    @ApiBody({ type: ForgotPasswordDto }) 
     async forgotPassword(@Body() { email }: ForgotPasswordDto) {
         await this.authService.forgotPassword(email);
         return { message: 'Se um usuário com este e-mail existir, um link de recuperação será enviado.' };
@@ -67,9 +67,9 @@ export class AuthController {
 
     @Post('reset-password')
     @HttpCode(HttpStatus.OK)
-    @ApiBody({ type: ResetPasswordDto }) // Para documentação no Swagger
-    async resetPassword(@Body() { token, newPassword }: ResetPasswordDto) {
-        await this.authService.resetPassword(token, newPassword);
+    @ApiBody({ type: ResetPasswordDto }) 
+    async resetPassword(@Body() { email, code, newPassword }: ResetPasswordDto) {
+        await this.authService.resetPassword(code, email, newPassword);
         return { message: 'Senha redefinida com sucesso.' };
     }
 }
