@@ -1,13 +1,16 @@
-import { IsNotEmpty, IsString, MinLength } from 'class-validator';
-import { ApiProperty } from '@nestjs/swagger';
+import { IsNotEmpty, IsString, Length, MinLength } from 'class-validator';
 export class ResetPasswordDto {
-  @ApiProperty({
-    example: 'dsfdsuhcdscvhdscduhsvcdshvc...'
-  })
-  @IsString() @IsNotEmpty() token: string;
-  @ApiProperty({
-    example: 'newPassword123'
-  })
-  @IsString() @IsNotEmpty() @MinLength(6) newPassword: string;
+  @IsString() 
+  @IsNotEmpty() 
+  email: string;
 
+  @IsString() 
+  @IsNotEmpty() 
+  @Length(6, 6, { message: 'O código deve ter exatamente 6 dígitos.' })
+  code: string;
+
+  @IsString() 
+  @IsNotEmpty() 
+  @MinLength(6) 
+  newPassword: string;
 }
