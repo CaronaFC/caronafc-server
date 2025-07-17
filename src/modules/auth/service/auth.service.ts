@@ -11,6 +11,12 @@ import { InjectRepository } from '@nestjs/typeorm';
 import * as crypto from 'crypto';
 import { Repository } from 'typeorm';
 import { PasswordResetToken } from '../password-reset-token.entity';
+import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc';
+import timezone from 'dayjs/plugin/timezone';
+
+dayjs.extend(utc);
+dayjs.extend(timezone);
 
 @Injectable()
 export class AuthService {
@@ -127,23 +133,16 @@ export class AuthService {
         await this.usuarioRepository.save(usuario);
         await this.tokenRepository.delete(resetToken.id);
 
+        const agoraRecife = dayjs().tz('America/Recife');
+
         await this.mailerService.sendMail({
             to: usuario.email,
             subject: 'Alteração de senha- CaronaFC',
             template: 'alteracao-senha', // Nome do caminho do arquivo .hbs
             context: {
                 nome: usuario.nome_completo,
-                date: new Date().toLocaleDateString('pt-BR', {
-                    year: 'numeric',
-                    month: '2-digit',
-                    day: '2-digit',
-                }),
-                time: new Date().toLocaleTimeString('pt-BR', {
-                    hour: '2-digit',
-                    minute: '2-digit',
-                    second: '2-digit',
-                    hour12: false, // Formato 24 horas
-                })
+                date: agoraRecife.format('DD/MM/YYYY'),
+                time: agoraRecife.format('HH:mm:ss'),
             },
         });
     }
