@@ -111,7 +111,7 @@ export class AuthService {
 
         const hashedCode = crypto.createHash('sha256').update(code).digest('hex');
 
-        
+
         const resetToken = await this.tokenRepository.findOne({
             where: { token: hashedCode, usuario: { email } },
             relations: ['usuario'],
@@ -123,7 +123,7 @@ export class AuthService {
 
         const usuario = resetToken.usuario;
         usuario.senha = newPassword;
-        
+
         await this.usuarioRepository.save(usuario);
         await this.tokenRepository.delete(resetToken.id);
     }

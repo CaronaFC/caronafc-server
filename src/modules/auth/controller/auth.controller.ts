@@ -57,17 +57,17 @@ export class AuthController {
             throw new UnauthorizedException('Invalid Firebase token')
         }
     }
-@Post('forgot-password')
+    @Post('forgot-password')
     @HttpCode(HttpStatus.OK)
-    @ApiBody({ type: ForgotPasswordDto }) 
+    @ApiBody({ type: ForgotPasswordDto })
     async forgotPassword(@Body() { email }: ForgotPasswordDto) {
         await this.authService.forgotPassword(email);
-        return { message: 'Se um usuário com este e-mail existir, um link de recuperação será enviado.' };
+        return { message: 'email enviado se existir usuario' };
     }
 
     @Post('reset-password')
     @HttpCode(HttpStatus.OK)
-    @ApiBody({ type: ResetPasswordDto }) 
+    @ApiBody({ type: ResetPasswordDto })
     async resetPassword(@Body() { email, code, newPassword }: ResetPasswordDto) {
         await this.authService.resetPassword(code, email, newPassword);
         return { message: 'Senha redefinida com sucesso.' };

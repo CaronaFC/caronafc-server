@@ -1,4 +1,4 @@
-import { BeforeInsert, Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { BeforeInsert, Column, Entity, OneToMany, PrimaryGeneratedColumn,BeforeUpdate } from 'typeorm';
 import { Avaliacao } from '../avaliacao/avaliacao.entity';
 import { Veiculo } from '../veiculo/veiculo.entity';
 
@@ -46,4 +46,16 @@ export class Usuario {
     async hashPassword() {
         this.senha = await bcrypt.hash(this.senha, 10);
     }
+
+    @BeforeUpdate()
+    async hashPasswordOnUpdate() {
+      // Verifica se a senha foi modificada para evitar re-hashing desnecessário
+      if (this.senha) {
+        // É uma boa prática verificar se a senha não é já um hash.
+        // Hashes do bcrypt geralmente começam com "$2b$".
+        if (!this.senha.startsWith('$2b$')) {
+          this.senha = await bcrypt.hash(this.senha, 10);
+      }
+    }
+  }
 }
