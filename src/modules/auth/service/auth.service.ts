@@ -126,5 +126,25 @@ export class AuthService {
 
         await this.usuarioRepository.save(usuario);
         await this.tokenRepository.delete(resetToken.id);
+
+        await this.mailerService.sendMail({
+            to: usuario.email,
+            subject: 'Alteração de senha- CaronaFC',
+            template: 'alteracao-senha', // Nome do caminho do arquivo .hbs
+            context: {
+                nome: usuario.nome_completo,
+                date: new Date().toLocaleDateString('pt-BR', {
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit',
+                }),
+                time: new Date().toLocaleTimeString('pt-BR', {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit',
+                    hour12: false, // Formato 24 horas
+                })
+            },
+        });
     }
 }
