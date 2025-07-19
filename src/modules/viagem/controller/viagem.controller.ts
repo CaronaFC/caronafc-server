@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Post, UseGuards, Param, Patch } from '@nestjs/common';
 import { ApiBearerAuth, ApiOkResponse, ApiOperation, ApiResponse, ApiTags, ApiUnauthorizedResponse } from '@nestjs/swagger';
 import { ViagemService } from '../services/viagem.service';
 import { CreateViagemDto } from '../dto/create-viagem.dto';
@@ -34,5 +34,16 @@ export class ViagemController {
             return this.viagemService.findByMotoristaId(Number(motoristaId));
         }
         return this.viagemService.findAll();
+    }
+
+    @Patch(':id/adicionar-passageiro/:usuarioId')
+    @ApiOperation({ summary: 'Adiciona um passageiro a uma viagem' })
+    @ApiResponse({ status: 200, description: 'Passageiro adicionado com sucesso' })
+    @ApiResponse({ status: 404, description: 'Viagem ou usuário não encontrado' })
+    async adicionarPassageiro(
+      @Param('id') viagemId: number,
+      @Param('usuarioId') usuarioId: number,
+    ): Promise<Viagem> {
+      return this.viagemService.adicionarPassageiro(Number(viagemId), Number(usuarioId));
     }
 }

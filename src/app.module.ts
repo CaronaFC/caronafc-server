@@ -11,18 +11,19 @@ import { UsuarioModule } from './modules/usuario/usuario.module';
 import { VeiculoModule } from './modules/veiculo/veiculo.module';
 import { ViagemModule } from './modules/viagem/viagem.module';
 import { AuthModule } from './modules/auth/auth.module';
-
+import { SolicitacaoModule } from './modules/solicitacao/solicitacao.module';
 
 @Module({
   imports: [
-    UsuarioModule, 
-    ViagemModule, 
-    JogoModule, 
-    VeiculoModule, 
-    AvaliacaoModule, 
+    UsuarioModule,
+    ViagemModule,
+    JogoModule,
+    VeiculoModule,
+    AvaliacaoModule,
     TipoVeiculoModule,
+    SolicitacaoModule,
     ConfigModule.forRoot({
-      isGlobal: true
+      isGlobal: true,
     }),
     TypeOrmModule.forRoot({
       type: 'postgres',
@@ -34,9 +35,9 @@ import { AuthModule } from './modules/auth/auth.module';
       entities: [__dirname + '/modules/**/*.entity{.ts,.js}'],
       synchronize: true, // ativar false ao ativar modo produção
     }),
-    AuthModule
-],
+    AuthModule,
+  ],
   controllers: [AppController, UsuarioController],
-  providers: [AppService]
+  providers: [AppService],
 })
 export class AppModule {}
