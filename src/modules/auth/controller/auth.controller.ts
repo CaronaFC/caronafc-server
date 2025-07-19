@@ -1,4 +1,4 @@
-import { Controller, Headers, HttpCode, HttpStatus, Post, Request, UnauthorizedException, UseGuards } from '@nestjs/common';
+import { Body, Controller, Headers, HttpCode, HttpStatus, Post, Request, UnauthorizedException, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { ApiBody, ApiTags } from '@nestjs/swagger';
 import { CreateUsuarioDto } from 'src/modules/usuario/dto/create-usuario.dto';
@@ -6,6 +6,9 @@ import { UsuarioService } from 'src/modules/usuario/services/usuario.service';
 import admin from '../../firebase/firebase-admin';
 import { LoginDto } from '../dto/login.dto';
 import { AuthService } from '../service/auth.service';
+
+import { ForgotPasswordDto } from '../dto/forgot-password.dto';
+import { ResetPasswordDto } from '../dto/reset-password.dto';
 
 @ApiTags('auth')
 @Controller('auth')
@@ -53,5 +56,20 @@ export class AuthController {
             console.error('Error in firebaseLogin:', e)
             throw new UnauthorizedException('Invalid Firebase token')
         }
+    }
+    @Post('forgot-password')
+    @HttpCode(HttpStatus.OK)
+    @ApiBody({ type: ForgotPasswordDto })
+    async forgotPassword(@Body() { email }: ForgotPasswordDto) {
+        await this.authService.forgotPassword(email);
+        return { message: 'email enviado se existir usuario' };
+    }
+
+    @Post('reset-password')
+    @HttpCode(HttpStatus.OK)
+    @ApiBody({ type: ResetPasswordDto })
+    async resetPassword(@Body() { email, code, newPassword }: ResetPasswordDto) {
+        await this.authService.resetPassword(code, email, newPassword);
+        return { message: 'Senha redefinida com sucesso.' };
     }
 }
