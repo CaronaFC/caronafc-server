@@ -2,9 +2,10 @@
 /dist
 /node_modules
 /build
-/firebase-key.json
-/postgres  
-# ignorando postgres para mandar p/ joaquim
+
+postgres/
+firebase-key.json
+ 
 # Logs
 logs
 *.log

@@ -1,5 +1,6 @@
-import { Column, Entity, JoinTable, ManyToMany, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinTable, ManyToMany, ManyToOne, PrimaryGeneratedColumn, OneToMany } from "typeorm";
 import { Jogo } from "../jogo/jogo.entity";
+import { SolicitacaoViagem } from "../solicitacao/solicitacao.entity"
 import { Usuario } from "../usuario/usuario.entity";
 import { CreateJogoDto } from "../jogo/dto/create-jogo.dto";
 
@@ -12,6 +13,9 @@ export class Viagem {
     @ManyToOne(() => Usuario, { nullable: false })
     @JoinTable()
     motorista: Usuario;
+
+    @OneToMany(() => SolicitacaoViagem, (solicitacao) => solicitacao.viagem)
+    solicitacoes: SolicitacaoViagem[];
 
     @ManyToMany(() => Usuario, { cascade: true })
     @JoinTable()

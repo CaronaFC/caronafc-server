@@ -58,4 +58,22 @@ export class ViagemService {
             relations: ['motorista', 'passageiros'], // adjust as needed
         });
     }
+
+    async adicionarPassageiro(viagemId: number, usuarioId: number): Promise<Viagem> {
+        const viagem = await this.viagemRepository.findOne({
+            where: { id: viagemId },
+            relations: ['passageiros'], 
+        });
+
+        if (!viagem) throw new Error('Viagem não encontrada');
+
+        const usuario = await this.usuarioRepository.findOneBy({ id: usuarioId });
+        if (!usuario) throw new Error('Usuário não encontrado');
+
+        const jaEstaNaViagem = viagem.passageiros.some((p) => p.id === usuario.id);
+        if (jaEstaNaViagem) throw new Error('Usuário já está na viagem');
+
+        viagem.passageiros.push(usuario);
+        return this.viagemRepository.save(viagem);
+    }
 }
