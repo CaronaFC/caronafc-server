@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Usuario } from 'src/modules/usuario/usuario.entity';
 import { Repository } from 'typeorm';
@@ -76,4 +76,13 @@ export class ViagemService {
         viagem.passageiros.push(usuario);
         return this.viagemRepository.save(viagem);
     }
+
+    async delete(id: number): Promise<void> {
+        const viagem = await this.viagemRepository.findOneBy({ id });
+        if (!viagem) {
+            throw new NotFoundException('Viagem não encontrada');
+        }
+        await this.viagemRepository.remove(viagem);
+    }
+
 }

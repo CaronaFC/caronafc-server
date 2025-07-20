@@ -45,4 +45,14 @@ export class ViagemController {
     ): Promise<Viagem> {
       return this.viagemService.adicionarPassageiro(Number(viagemId), Number(usuarioId));
     }
+
+
+    @Delete(':id')
+    @ApiOperation({ summary: 'Remove uma viagem pelo ID' })
+    @ApiResponse({ status: 200, description: 'Viagem removida com sucesso' })
+    @ApiResponse({ status: 404, description: 'Viagem não encontrada' })
+    async delete(@Param('id') id: number): Promise<{ message: string }> {
+        await this.viagemService.delete(Number(id));
+        return { message: 'Viagem removida com sucesso' };
+    }
 }
