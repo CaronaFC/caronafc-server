@@ -108,4 +108,23 @@ export class UsuarioController {
   getProfile(@Req() req) {
     return this.usuarioService.findOne(req.user.id)
   }
+
+  @UseGuards(JwtAuthGuard)
+  @Get(':id/veiculos/count')
+  @ApiOperation({ summary: 'Retorna a quantidade de veículos do usuário' })
+  @ApiResponse({ status: 200, description: 'Quantidade de veículos retornada com sucesso' })
+  @ApiResponse({ status: 404, description: 'Usuário não encontrado' })
+  @ApiBearerAuth()
+  @ApiUnauthorizedResponse({ description: 'Token JWT ausente ou inválido' })
+  async getVeiculosCount(@Param('id', ParseIntPipe) id: number) {
+    const usuario = await this.usuarioService.findOne(id);
+    if (!usuario) {
+      throw new NotFoundException('Usuário não encontrado');
+    }
+
+    return { 
+      message: 'Quantidade de veículos obtida com sucesso', 
+      data: { count: usuario.veiculos.length } 
+    };
+  }
 }
