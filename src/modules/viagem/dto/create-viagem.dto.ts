@@ -20,7 +20,6 @@ export class CreateViagemDto {
     @ApiProperty()
     qtdVagas: number;
 
-
     @ApiProperty({ example: true })
     temRetorno: boolean;
 

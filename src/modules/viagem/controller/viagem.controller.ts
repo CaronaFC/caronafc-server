@@ -1,10 +1,11 @@
-import { Body, Controller, Get, Post, UseGuards, Param, Patch } from '@nestjs/common';
+import { Body, Controller, Get, Post, UseGuards, Param, Patch, Delete } from '@nestjs/common';
 import { ApiBearerAuth, ApiOkResponse, ApiOperation, ApiResponse, ApiTags, ApiUnauthorizedResponse } from '@nestjs/swagger';
 import { ViagemService } from '../services/viagem.service';
 import { CreateViagemDto } from '../dto/create-viagem.dto';
 import { Viagem } from '../viagem.entity';
 import { AuthGuard } from '@nestjs/passport';
 import { Query } from '@nestjs/common';
+import { FiltroViagemDto } from '../dto/filtro-viagem.dto';
 
 @ApiTags('Viagem')
 @Controller('viagem')
@@ -27,11 +28,9 @@ export class ViagemController {
     @ApiResponse({ status: 200, description: 'Viagens encontradas com sucesso', type: [Viagem] })
     @ApiResponse({ status: 404, description: 'Nenhuma viagem encontrada' })
     @ApiOkResponse({ description: 'Lista todas as viagens ou filtradas por motoristaId', type: [Viagem] })
-    async findAll(
-        @Query('motoristaId') motoristaId?: number
-    ): Promise<Viagem[]> {
-        if (motoristaId) {
-            return this.viagemService.findByMotoristaId(Number(motoristaId));
+    async findAll(@Query() filtro: FiltroViagemDto): Promise<Viagem[]> {
+        if (filtro.motoristaId) {
+            return this.viagemService.findByMotoristaId(Number(filtro.motoristaId));
         }
         return this.viagemService.findAll();
     }
