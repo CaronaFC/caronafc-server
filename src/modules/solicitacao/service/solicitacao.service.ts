@@ -2,6 +2,7 @@ import {
   Injectable,
   NotFoundException,
   ForbiddenException,
+  BadRequestException
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { SolicitacaoViagem, StatusSolicitacao } from '../solicitacao.entity';
@@ -50,7 +51,7 @@ export class SolicitacaoService {
   ): Promise<SolicitacaoViagem[]> {
     return this.solicitacaoRepository.find({
       where: { usuario: { id: usuarioId } },
-      relations: ['viagem'],
+      relations: ['viagem', 'viagem.motorista'],
       order: { dataSolicitacao: 'DESC' },
     });
   }
@@ -62,30 +63,42 @@ export class SolicitacaoService {
   ): Promise<SolicitacaoViagem> {
     const solicitacao = await this.solicitacaoRepository.findOne({
       where: { id },
-      relations: ['viagem', 'viagem.motorista'],
+      relations: ['viagem', 'viagem.motorista', 'viagem.passageiros', 'usuario'],
     });
 
     if (!solicitacao) throw new NotFoundException('Solicitação não encontrada');
+
     if (solicitacao.viagem.motorista.id !== usuario.id)
       throw new ForbiddenException('Apenas o motorista pode alterar o status');
+
+    if (status === StatusSolicitacao.ACEITA) {
+      const viagem = solicitacao.viagem;
+
+      if (viagem.qtdVagas <= 0) {
+        throw new BadRequestException('Não há vagas disponíveis nesta viagem');
+      }
+
+      const jaPassageiro = viagem.passageiros.some(
+        (p) => p.id === solicitacao.usuario.id,
+      );
+
+      if (!jaPassageiro) {
+        viagem.passageiros.push(solicitacao.usuario);
+        viagem.qtdVagas -= 1;
+        await this.viagemRepository.save(viagem);
+      }
+    }
 
     solicitacao.status = status;
     return this.solicitacaoRepository.save(solicitacao);
   }
 
-  async listarSolicitacoesPorMotorista(
-    motoristaId: number,
+  async listarSolicitacoesPorViagem(
+    viagemId: number,
   ): Promise<SolicitacaoViagem[]> {
     return this.solicitacaoRepository.find({
-      relations: ['usuario', 'viagem', 'viagem.motorista'],
-      where: {
-        status: StatusSolicitacao.PENDENTE,
-        viagem: {
-          motorista: {
-            id: motoristaId,
-          },
-        },
-      },
+      where: { viagem: { id: viagemId } },
+      relations: ['usuario', 'viagem'],
       order: { dataSolicitacao: 'DESC' },
     });
   }

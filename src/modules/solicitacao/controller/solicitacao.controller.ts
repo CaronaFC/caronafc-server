@@ -70,12 +70,12 @@ export class SolicitacaoController {
     return this.solicitacaoService.atualizarStatus(id, status, req.user);
   }
 
-  @Get('motorista')
+  @Get('viagem/:id')
   @ApiOperation({
-    summary: 'Lista as solicitações para as viagens do motorista autenticado',
+    summary: 'Lista as solicitações de uma viagem específica',
   })
   @ApiResponse({ status: 200, type: [SolicitacaoViagem] })
-  async listarPorMotorista(@Req() req: any): Promise<SolicitacaoViagem[]> {
-    return this.solicitacaoService.listarSolicitacoesPorMotorista(req.user.id);
+  async listarPorViagem(@Param('id') id: number): Promise<SolicitacaoViagem[]> {
+    return this.solicitacaoService.listarSolicitacoesPorViagem(id);
   }
 }
