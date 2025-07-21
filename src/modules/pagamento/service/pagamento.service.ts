@@ -1,6 +1,11 @@
 import { Inject, Injectable, UnauthorizedException } from '@nestjs/common';
 import { CriarPagamentoDto } from '../dto/criarPagamento.dto';
-import { Payment, MercadoPagoConfig, IdentificationType, PaymentMethod } from 'mercadopago';
+import {
+  Payment,
+  MercadoPagoConfig,
+  IdentificationType,
+  PaymentMethod,
+} from 'mercadopago';
 
 @Injectable()
 export class PagamentoService {
@@ -28,7 +33,8 @@ export class PagamentoService {
       id: response.id,
       status: response.status,
       qr_code: response.point_of_interaction?.transaction_data?.qr_code,
-      qr_code_base64: response.point_of_interaction?.transaction_data?.qr_code_base64,
+      qr_code_base64:
+        response.point_of_interaction?.transaction_data?.qr_code_base64,
       external_reference: response.external_reference,
       description: response.description,
       transaction_amount: response.transaction_amount,
@@ -36,7 +42,7 @@ export class PagamentoService {
   }
 
   async testarConexao(): Promise<boolean> {
-    try{
+    try {
       const identificationType = new IdentificationType(this.mercadoPagoConfig);
       const response = await identificationType.list();
       console.log('Conexão com Mercado Pago bem-sucedida:', response);
@@ -47,18 +53,21 @@ export class PagamentoService {
     }
   }
 
-  async UpdatePaymentStatus(paymentId: string, status: string): Promise<string> {
+  async UpdatePaymentStatus(
+    paymentId: string,
+    status: string,
+  ): Promise<string> {
     const paymentMethod = new PaymentMethod(this.mercadoPagoConfig);
-    const response = await paymentMethod.get(); 
-    if(paymentId == null || paymentId == undefined) {
+    const response = await paymentMethod.get();
+    if (paymentId == null || paymentId == undefined) {
       throw new UnauthorizedException('Erro ao localizar o Id do pagamento');
     }
     response.forEach((payment) => {
-      if(payment.id === paymentId) {
+      if (payment.id === paymentId) {
         payment.status = status;
       }
     });
-    return 'Payment status updated successfully'; 
+    return 'Payment status updated successfully';
   }
 
   async getPaymentMethods(): Promise<any> {
@@ -67,12 +76,12 @@ export class PagamentoService {
     return response;
   }
 
-  async getPaymentById(paymentId: string): Promise<any>{
+  async getPaymentById(paymentId: string): Promise<any> {
     const payment = new Payment(this.mercadoPagoConfig);
-    if(!paymentId) {
+    if (!paymentId) {
       throw new UnauthorizedException('Payment ID is required');
     }
-    const response = await payment.get({id: paymentId});
+    const response = await payment.get({ id: paymentId });
     if (!response) {
       throw new UnauthorizedException('Payment not found');
     }
@@ -84,16 +93,17 @@ export class PagamentoService {
       payer_email: response.payer?.email,
       payment_method_id: response.payment_method_id,
       qr_code: response.point_of_interaction?.transaction_data?.qr_code,
-      qr_code_base64: response.point_of_interaction?.transaction_data?.qr_code_base64,
+      qr_code_base64:
+        response.point_of_interaction?.transaction_data?.qr_code_base64,
     };
   }
 
-  async cancelPayment(paymentId: string): Promise<string>{
+  async cancelPayment(paymentId: string): Promise<string> {
     const payment = new Payment(this.mercadoPagoConfig);
-    if(!paymentId) {
+    if (!paymentId) {
       throw new UnauthorizedException('Payment ID is required');
     }
-    const response = await payment.cancel({id: paymentId});
+    const response = await payment.cancel({ id: paymentId });
     if (!response) {
       throw new UnauthorizedException('Payment not found');
     }

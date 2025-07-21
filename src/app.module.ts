@@ -16,20 +16,18 @@ import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handleba
 import { join } from 'path';
 import { PagamentoModule } from './modules/pagamento/pagamento.module';
 import { MercadopagoModule } from './modules/mercadopago/mercadopago.module';
-import { MercadopagoModule } from './modules/mercadopago/mercadopago.module';
-
 
 @Module({
   imports: [
-    UsuarioModule, 
-    ViagemModule, 
-    JogoModule, 
-    VeiculoModule, 
-    AvaliacaoModule, 
+    UsuarioModule,
+    ViagemModule,
+    JogoModule,
+    VeiculoModule,
+    AvaliacaoModule,
     TipoVeiculoModule,
     AuthModule,
     ConfigModule.forRoot({
-      isGlobal: true
+      isGlobal: true,
     }),
     TypeOrmModule.forRoot({
       type: 'postgres',
@@ -73,6 +71,6 @@ import { MercadopagoModule } from './modules/mercadopago/mercadopago.module';
     MercadopagoModule,
   ],
   controllers: [AppController],
-  providers: [AppService]
+  providers: [AppService],
 })
 export class AppModule {}

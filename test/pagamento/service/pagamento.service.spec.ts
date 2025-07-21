@@ -11,7 +11,6 @@ jest.mock('mercadopago', () => {
     ...actual,
     Payment: jest.fn().mockImplementation(() => ({
       create: jest.fn().mockResolvedValue({
-
         id: '123456',
         status: 'pending',
         point_of_interaction: {
@@ -23,7 +22,6 @@ jest.mock('mercadopago', () => {
         external_reference: 'ref_123',
         description: 'Teste com Jest',
         transaction_amount: 50.5,
-
       }),
     })),
   };
@@ -31,7 +29,11 @@ jest.mock('mercadopago', () => {
 
 describe('Teste de conexão Mercado Pago', () => {
   it('deve autenticar com sucesso usando o access_token de teste', async () => {
-    const mp = new MercadoPagoConfig({ accessToken: process.env.MP_ACCESS_TOKEN || 'TEST-3116153447679526-070717-8c803268ac25ab8108567c3bcb2d595d-489252081' });
+    const mp = new MercadoPagoConfig({
+      accessToken:
+        process.env.MERCADO_PAGO_ACCESS_TOKEN ||
+        'TEST-3116153447679526-070717-8c803268ac25ab8108567c3bcb2d595d-489252081',
+    });
 
     const identificationType = new IdentificationType(mp);
     const response = await identificationType.list();
@@ -50,7 +52,11 @@ describe('PagamentoService', () => {
         PagamentoService,
         {
           provide: 'MERCADO_PAGO',
-          useValue: new MercadoPagoConfig({ accessToken: process.env.MERCADO_PAGO_ACCESS_TOKEN || 'TEST-3116153447679526-070717-8c803268ac25ab8108567c3bcb2d595d-489252081' }),
+          useValue: new MercadoPagoConfig({
+            accessToken:
+              process.env.MERCADO_PAGO_ACCESS_TOKEN ||
+              'TEST-3116153447679526-070717-8c803268ac25ab8108567c3bcb2d595d-489252081',
+          }),
         },
       ],
     }).compile();
