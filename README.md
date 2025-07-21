@@ -79,26 +79,29 @@ caronafc-server/
 - **dotenv** — Carregamento de variáveis de ambiente a partir do arquivo `.env`.
 - **Jest** — Testes unitários e e2e.
 - **Docker, Docker Compose** — Containerização da aplicação e do banco de dados.
-- **Soccer Data Api** — API de jogos 
+- **Soccer Data Api** — API de jogos
 
 > Consulte o arquivo `package.json` para a lista
 
 ## Relacionamento do Banco de Dados
 
 ### Usuário (`Usuario`)
-- **Um usuário pode cadastrar vários veículos**  
-  - Relacionamento: **OneToMany**  
-  - Exemplo:  
+
+- **Um usuário pode cadastrar vários veículos**
+  - Relacionamento: **OneToMany**
+  - Exemplo:
     - Um usuário possui uma lista de veículos (`veiculos: Veiculo[]`)
     - Cada veículo pertence a um único usuário (`usuario: Usuario`)
 
 ### Veículo (`Veiculo`)
+
 - **Cada veículo pertence a um único usuário**
   - Relacionamento: **ManyToOne**
   - Exemplo:
     - Campo na entidade `Veiculo`: `@ManyToOne(() => Usuario) usuario: Usuario;`
 
 ### Viagem (`Viagem`)
+
 - **Cada viagem tem um motorista**
   - Relacionamento: **ManyToOne**
   - Exemplo:
@@ -132,6 +135,7 @@ Viagem
 ---
 
 Esses relacionamentos garantem que:
+
 - Um usuário pode cadastrar vários veículos.
 - Uma viagem sempre tem um motorista (usuário).
 - Uma viagem pode ter vários passageiros (usuários).
@@ -195,6 +199,7 @@ Consulte os arquivos de entidade no diretório `src/modules/` para ver a impleme
 
    Copy `.env.example` to `.env` and update the values as needed.  
    Exemplo de `.env`:
+
    ```
    DATABASE_HOST=db
    DATABASE_PORT=5432
