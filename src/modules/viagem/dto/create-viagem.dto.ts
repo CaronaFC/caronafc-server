@@ -2,6 +2,7 @@ import { ApiProperty } from '@nestjs/swagger';
 import { CreateJogoDto } from '../../jogo/dto/create-jogo.dto';
 
 export class CreateViagemDto {
+<<<<<<< HEAD
   @ApiProperty()
   motoristaId: number;
 
@@ -34,4 +35,30 @@ export class CreateViagemDto {
 
   @ApiProperty({ type: 'integer', example: 1 })
   veiculoId: number;
+=======
+    @ApiProperty()
+    motoristaId: number;
+
+    @ApiProperty({ type: CreateJogoDto })
+    jogo: CreateJogoDto;
+
+    @ApiProperty()
+    origem_lat: number;
+
+    @ApiProperty()
+    origem_long: number;
+
+    @ApiProperty({ type: String, example: '2025-07-12T22:00:00Z' })
+    horario: Date;
+
+    @ApiProperty()
+    qtdVagas: number;
+
+
+    @ApiProperty({ example: true })
+    temRetorno: boolean;
+
+    @ApiProperty({ example: 15.00 })
+    valorPorPessoa: number;
+>>>>>>> 0f155520eaa393342b5db16c8dfe37d372667d12
 }

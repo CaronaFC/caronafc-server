@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import {
   Body,
   Controller,
@@ -10,6 +11,14 @@ import {
 import { AuthGuard } from '@nestjs/passport';
 import { ApiBody, ApiTags } from '@nestjs/swagger';
 import { UsuarioService } from 'src/modules/usuario/services/usuario.service';
+=======
+import { Body, Controller, Headers, HttpCode, HttpStatus, Post, Request, UnauthorizedException, UseGuards } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
+import { ApiBody, ApiTags } from '@nestjs/swagger';
+import { CreateUsuarioDto } from 'src/modules/usuario/dto/create-usuario.dto';
+import { UsuarioService } from 'src/modules/usuario/services/usuario.service';
+import admin from '../../firebase/firebase-admin';
+>>>>>>> 0f155520eaa393342b5db16c8dfe37d372667d12
 import { LoginDto } from '../dto/login.dto';
 import { AuthService } from '../service/auth.service';
 
@@ -19,6 +28,7 @@ import { ResetPasswordDto } from '../dto/reset-password.dto';
 @ApiTags('auth')
 @Controller('auth')
 export class AuthController {
+<<<<<<< HEAD
   constructor(
     private readonly authService: AuthService,
     private readonly usuarioService: UsuarioService,
@@ -48,4 +58,65 @@ export class AuthController {
     await this.authService.resetPassword(code, email, newPassword);
     return { message: 'Senha redefinida com sucesso.' };
   }
+=======
+
+    constructor(
+        private readonly authService: AuthService,
+        private readonly usuarioService: UsuarioService
+    ) { };
+
+    @HttpCode(HttpStatus.OK)
+    @Post('login')
+    @UseGuards(AuthGuard('local'))
+    @ApiBody({ type: LoginDto })
+    async login(@Request() req) {
+        const token = this.authService.login(req.user.id);
+        return { id: req.user.id, token }
+    }
+
+    @Post('firebase')
+    async firebaseLogin(@Headers('authorization') authHeader: string){
+        if(!authHeader) throw new UnauthorizedException('No token provided');
+        const token = authHeader.split(' ')[1];
+        try{
+            const decoded = await admin.auth().verifyIdToken(token);
+            if (!decoded.email) {
+                throw new UnauthorizedException('No email found in Firebase token');
+            }
+            let user = await this.usuarioService.findOneByEmail(decoded.email);
+            if (!user) {
+                const newUser: CreateUsuarioDto = {
+                    nome_completo: decoded.name,
+                    email: decoded.email,
+                    numero: '',
+                    cpf: '',
+                    senha: '',
+                    imagem: decoded.picture,
+                    data_nascimento: new Date(),
+                    veiculos:[],
+                }
+                user = await this.usuarioService.create(newUser);
+            }
+            return { id: user.id, email: user.email};
+        } catch (e) {
+            console.error('Error in firebaseLogin:', e)
+            throw new UnauthorizedException('Invalid Firebase token')
+        }
+    }
+    @Post('forgot-password')
+    @HttpCode(HttpStatus.OK)
+    @ApiBody({ type: ForgotPasswordDto })
+    async forgotPassword(@Body() { email }: ForgotPasswordDto) {
+        await this.authService.forgotPassword(email);
+        return { message: 'email enviado se existir usuario' };
+    }
+
+    @Post('reset-password')
+    @HttpCode(HttpStatus.OK)
+    @ApiBody({ type: ResetPasswordDto })
+    async resetPassword(@Body() { email, code, newPassword }: ResetPasswordDto) {
+        await this.authService.resetPassword(code, email, newPassword);
+        return { message: 'Senha redefinida com sucesso.' };
+    }
+>>>>>>> 0f155520eaa393342b5db16c8dfe37d372667d12
 }

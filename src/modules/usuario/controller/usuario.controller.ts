@@ -13,6 +13,7 @@ import {
   UseGuards,
   Req,
 } from '@nestjs/common';
+<<<<<<< HEAD
 import {
   ApiBearerAuth,
   ApiBody,
@@ -21,6 +22,9 @@ import {
   ApiTags,
   ApiUnauthorizedResponse,
 } from '@nestjs/swagger';
+=======
+import { ApiBearerAuth, ApiBody, ApiOperation, ApiResponse, ApiTags, ApiUnauthorizedResponse } from '@nestjs/swagger';
+>>>>>>> 0f155520eaa393342b5db16c8dfe37d372667d12
 import { CreateUsuarioDto } from '../dto/create-usuario.dto';
 import { UpdateUsuarioDto } from '../dto/update-usuario.dto';
 import { UsuarioService } from '../services/usuario.service';
@@ -30,6 +34,7 @@ import { AuthGuard } from '@nestjs/passport';
 @ApiTags('usuario')
 @Controller('usuario')
 export class UsuarioController {
+<<<<<<< HEAD
   constructor(private readonly usuarioService: UsuarioService) {}
 
   @UseGuards(JwtAuthGuard)
@@ -48,6 +53,9 @@ export class UsuarioController {
     const usuario = await this.usuarioService.findOne(req.user.id);
     return usuario.veiculos || [];
   }
+=======
+  constructor(private readonly usuarioService: UsuarioService) { }
+>>>>>>> 0f155520eaa393342b5db16c8dfe37d372667d12
 
   @Post()
   @ApiOperation({ summary: 'Cria um novo usuário' })
@@ -64,20 +72,28 @@ export class UsuarioController {
 
   @Get()
   @ApiOperation({ summary: 'Lista todos os usuários' })
+<<<<<<< HEAD
   @ApiResponse({
     status: 200,
     description: 'Lista de usuários retornada com sucesso',
   })
+=======
+  @ApiResponse({ status: 200, description: 'Lista de usuários retornada com sucesso' })
+>>>>>>> 0f155520eaa393342b5db16c8dfe37d372667d12
   @ApiBearerAuth()
   @ApiUnauthorizedResponse({ description: 'Token JWT ausente ou inválido' })
   @UseGuards(AuthGuard('jwt'))
   async findAll() {
     try {
       const usuarios = await this.usuarioService.findAll();
+<<<<<<< HEAD
       return {
         message: 'Lista de usuários obtida com sucesso',
         data: usuarios,
       };
+=======
+      return { message: 'Lista de usuários obtida com sucesso', data: usuarios };
+>>>>>>> 0f155520eaa393342b5db16c8dfe37d372667d12
     } catch {
       throw new InternalServerErrorException('Erro ao buscar usuários');
     }
@@ -107,7 +123,11 @@ export class UsuarioController {
   @UseGuards(AuthGuard('jwt'))
   async update(
     @Param('id', ParseIntPipe) id: number,
+<<<<<<< HEAD
     @Body() updateUsuarioDto: UpdateUsuarioDto,
+=======
+    @Body() updateUsuarioDto: UpdateUsuarioDto
+>>>>>>> 0f155520eaa393342b5db16c8dfe37d372667d12
   ) {
     const usuario = await this.usuarioService.update(id, updateUsuarioDto);
     if (!usuario) {
@@ -130,4 +150,15 @@ export class UsuarioController {
     }
     return { message: 'Usuário removido com sucesso' };
   }
+<<<<<<< HEAD
+=======
+
+  @UseGuards(JwtAuthGuard)
+  @Get("profile")
+  @ApiBearerAuth()
+  @ApiUnauthorizedResponse({ description: 'Token JWT ausente ou inválido' })
+  getProfile(@Req() req) {
+    return this.usuarioService.findOne(req.user.id)
+  }
+>>>>>>> 0f155520eaa393342b5db16c8dfe37d372667d12
 }

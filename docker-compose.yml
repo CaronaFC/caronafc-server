@@ -8,7 +8,11 @@ services:
       POSTGRES_DB: ${DATABASE_NAME}
       POSTGRES_HOST_AUTH_METHOD: trust
     ports:
+<<<<<<< HEAD
       - "5433:5432"
+=======
+      - '5433:5432'
+>>>>>>> 0f155520eaa393342b5db16c8dfe37d372667d12
     volumes:
       - ./postgres:/var/lib/postgresql/data
 
@@ -18,9 +22,16 @@ services:
     env_file:
       - .env
     ports:
+<<<<<<< HEAD
       - "3000:3000"
+=======
+      - '3000:3000'
+>>>>>>> 0f155520eaa393342b5db16c8dfe37d372667d12
     depends_on:
       - db
     volumes:
       - .:/app
+<<<<<<< HEAD
       - /app/node_modules
+=======
+>>>>>>> 0f155520eaa393342b5db16c8dfe37d372667d12

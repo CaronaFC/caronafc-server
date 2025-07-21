@@ -10,6 +10,10 @@ export default tseslint.config(
   },
   eslint.configs.recommended,
   ...tseslint.configs.recommendedTypeChecked,
+<<<<<<< HEAD
+=======
+  eslintPluginPrettierRecommended,
+>>>>>>> 0f155520eaa393342b5db16c8dfe37d372667d12
   {
     languageOptions: {
       globals: {
