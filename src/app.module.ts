@@ -10,25 +10,25 @@ import { TipoVeiculoModule } from './modules/tipo-veiculo/tipo-veiculo.module';
 import { UsuarioModule } from './modules/usuario/usuario.module';
 import { VeiculoModule } from './modules/veiculo/veiculo.module';
 import { ViagemModule } from './modules/viagem/viagem.module';
-import { SolicitacaoModule } from "./modules/solicitacao/solicitacao.module"
+import { SolicitacaoModule } from './modules/solicitacao/solicitacao.module';
 
 import { MailerModule } from '@nestjs-modules/mailer';
 import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handlebars.adapter';
 import { join } from 'path';
-
+import { TeamsModule } from './modules/teams/teams.module';
 
 @Module({
   imports: [
-    UsuarioModule, 
-    ViagemModule, 
-    JogoModule, 
-    VeiculoModule, 
-    AvaliacaoModule, 
+    UsuarioModule,
+    ViagemModule,
+    JogoModule,
+    VeiculoModule,
+    AvaliacaoModule,
     TipoVeiculoModule,
     AuthModule,
     SolicitacaoModule,
     ConfigModule.forRoot({
-      isGlobal: true
+      isGlobal: true,
     }),
     TypeOrmModule.forRoot({
       type: 'postgres',
@@ -66,8 +66,10 @@ import { join } from 'path';
         },
       }),
     }),
+
+    TeamsModule,
   ],
   controllers: [AppController],
-  providers: [AppService]
+  providers: [AppService],
 })
 export class AppModule {}
