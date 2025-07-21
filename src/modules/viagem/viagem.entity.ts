@@ -7,7 +7,6 @@ import {
   PrimaryGeneratedColumn,
   OneToMany,
 } from 'typeorm';
-import { Jogo } from '../jogo/jogo.entity';
 import { SolicitacaoViagem } from '../solicitacao/solicitacao.entity';
 import { Usuario } from '../usuario/usuario.entity';
 import { CreateJogoDto } from '../jogo/dto/create-jogo.dto';

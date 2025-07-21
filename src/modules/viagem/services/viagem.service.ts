@@ -3,7 +3,6 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Usuario } from 'src/modules/usuario/usuario.entity';
 import { Repository } from 'typeorm';
 import { Viagem } from '../viagem.entity';
-import { Jogo } from 'src/modules/jogo/jogo.entity';
 import { CreateViagemDto } from '../dto/create-viagem.dto';
 import { Veiculo } from 'src/modules/veiculo/veiculo.entity';
 
