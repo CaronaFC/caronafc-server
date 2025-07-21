@@ -35,7 +35,7 @@ export class SolicitacaoService {
       },
     });
 
-    if (jaSolicitou) throw new ForbiddenException('Solicitação já realizada.');
+    if (jaSolicitou) throw new ForbiddenException('Você já solicitou essa viagem.');
 
     const solicitacao = this.solicitacaoRepository.create({
       usuario,
