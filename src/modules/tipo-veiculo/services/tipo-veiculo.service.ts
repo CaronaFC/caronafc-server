@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException, OnApplicationBootstrap } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CreateTipoVeiculoDto } from '../dto/create-tipo-veiculo.dto';
@@ -6,11 +6,28 @@ import { UpdateTipoVeiculoDto } from '../dto/update-tipo-veiculo.dto';
 import { TipoVeiculo } from '../tipo-veiculo.entity';
 
 @Injectable()
-export class TipoVeiculoService {
+export class TipoVeiculoService implements OnApplicationBootstrap {
   constructor(
     @InjectRepository(TipoVeiculo)
     private readonly tipoVeiculoRepository: Repository<TipoVeiculo>,
   ) {}
+
+  async onApplicationBootstrap() {
+    await this.ensureDefaultTipos();
+  }
+
+  private async ensureDefaultTipos() {
+    const tipos = ['Carro', 'Moto'];
+
+    for (const descricao of tipos) {
+      const exists = await this.tipoVeiculoRepository.findOneBy({ descricao });
+      if (!exists) {
+        const tipo = this.tipoVeiculoRepository.create({ descricao });
+        await this.tipoVeiculoRepository.save(tipo);
+        console.log(`TipoVeiculo "${descricao}" criado`);
+      }
+    }
+  }
 
   async create(createTipoVeiculoDto: CreateTipoVeiculoDto): Promise<TipoVeiculo> {
     const tipoVeiculo = this.tipoVeiculoRepository.create(createTipoVeiculoDto);
