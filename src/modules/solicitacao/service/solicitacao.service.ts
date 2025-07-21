@@ -34,7 +34,7 @@ export class SolicitacaoService {
       },
     });
 
-    if (jaSolicitou) throw new ForbiddenException('Solicitação já realizada.');
+    if (jaSolicitou) throw new ForbiddenException('Você já solicitou essa viagem.');
 
     const solicitacao = this.solicitacaoRepository.create({
       usuario,
@@ -45,15 +45,20 @@ export class SolicitacaoService {
     return this.solicitacaoRepository.save(solicitacao);
   }
 
-  async listarMinhasSolicitacoes(
-    usuarioId: number,
-  ): Promise<SolicitacaoViagem[]> {
-    return this.solicitacaoRepository.find({
-      where: { usuario: { id: usuarioId } },
-      relations: ['viagem'],
-      order: { dataSolicitacao: 'DESC' },
-    });
-  }
+ async listarMinhasSolicitacoes(
+  usuarioId: number,
+): Promise<SolicitacaoViagem[]> {
+  return this.solicitacaoRepository.find({
+    where: { usuario: { id: usuarioId } },
+    relations: [
+      'viagem',
+      'viagem.motorista',
+      'viagem.veiculo',
+      'usuario'
+    ],
+    order: { dataSolicitacao: 'DESC' },
+  });
+}
 
   async atualizarStatus(
     id: number,
