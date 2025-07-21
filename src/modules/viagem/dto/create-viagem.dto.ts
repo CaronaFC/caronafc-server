@@ -14,6 +14,12 @@ export class CreateViagemDto {
   @ApiProperty()
   origem_long: number;
 
+  @ApiProperty()
+  destino_lat: number;
+
+  @ApiProperty()
+  destino_long: number;
+
   @ApiProperty({ type: String, example: '2025-07-12T22:00:00Z' })
   horario: Date;
 
