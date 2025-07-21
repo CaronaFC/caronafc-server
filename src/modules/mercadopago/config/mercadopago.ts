@@ -1,4 +1,6 @@
+import { config } from 'dotenv';
 import { MercadoPagoConfig } from 'mercadopago';
+config(); // Carrega as variáveis de ambiente do arquivo .env
 
 export const MercadoPagoProvider = {
   provide: 'MERCADO_PAGO', // Token de injeção
