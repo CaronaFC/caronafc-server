@@ -6,10 +6,11 @@ import { ViagemController } from './controller/viagem.controller';
 import { ViagemService } from './services/viagem.service';
 import { Viagem } from './viagem.entity';
 import { Veiculo } from '../veiculo/veiculo.entity';
+import { ViagemGateway } from './viagem.gateway';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Viagem, Usuario, Jogo, Veiculo])],
-  providers: [ViagemService],
+  providers: [ViagemService, ViagemGateway],
   controllers: [ViagemController],
 })
 export class ViagemModule {}

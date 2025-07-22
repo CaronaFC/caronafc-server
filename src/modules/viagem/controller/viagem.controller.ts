@@ -22,6 +22,7 @@ import { Viagem } from '../viagem.entity';
 import { AuthGuard } from '@nestjs/passport';
 import { Query } from '@nestjs/common';
 import { FiltroViagemDto } from '../dto/filtro-viagem.dto';
+import { ViagemStatus } from "../viagem.entity"
 
 @ApiTags('Viagem')
 @Controller('viagem')
@@ -97,5 +98,16 @@ export class ViagemController {
   async delete(@Param('id') id: number): Promise<{ message: string }> {
     await this.viagemService.delete(Number(id));
     return { message: 'Viagem removida com sucesso' };
+  }
+
+  @Patch(':id/status')
+  @ApiOperation({ summary: 'Atualiza o status da viagem' })
+  @ApiResponse({ status: 200, description: 'Status atualizado com sucesso' })
+  @ApiResponse({ status: 404, description: 'Viagem não encontrada' })
+  async updateStatus(
+    @Param('id') id: number,
+    @Body('status') status: ViagemStatus,
+  ): Promise<Viagem> {
+    return this.viagemService.updateStatus(id, status);
   }
 }
