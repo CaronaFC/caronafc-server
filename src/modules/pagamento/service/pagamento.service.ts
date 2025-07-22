@@ -1,11 +1,11 @@
 import { Inject, Injectable, UnauthorizedException } from '@nestjs/common';
-import { CriarPagamentoDto } from '../dto/criarPagamento.dto';
 import {
-  Payment,
-  MercadoPagoConfig,
   IdentificationType,
+  MercadoPagoConfig,
+  Payment,
   PaymentMethod,
 } from 'mercadopago';
+import { CriarPagamentoDto } from '../dto/criarPagamento.dto';
 
 @Injectable()
 export class PagamentoService {

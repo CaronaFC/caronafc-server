@@ -121,4 +121,21 @@ export class UsuarioService {
     const result = await this.usuarioRepository.delete(id);
     return result;
   }
+
+  async findOrCreateGoogleUser(user: {
+        email: string;
+        name: string;
+        picture: string;
+        googleId: string;
+    }): Promise<Usuario | null> {
+        let usuario = await this.usuarioRepository.findOneOrFail({
+            where: { email: user.email },
+        }).catch(() => null);
+        if (!usuario) {
+            usuario = await this.usuarioRepository.findOneOrFail({
+                where: { googleuid: user.googleId },
+            }).catch(() => null);
+        }
+        return usuario;
+    }
 }

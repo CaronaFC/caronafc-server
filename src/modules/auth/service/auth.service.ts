@@ -9,14 +9,16 @@ import { MailerService } from '@nestjs-modules/mailer';
 import { ConfigService } from '@nestjs/config';
 import { InjectRepository } from '@nestjs/typeorm';
 import * as crypto from 'crypto';
+import dayjs from 'dayjs';
+import timezone from 'dayjs/plugin/timezone';
+import utc from 'dayjs/plugin/utc';
+import { OAuth2Client } from 'google-auth-library';
 import { Repository } from 'typeorm';
 import { PasswordResetToken } from '../password-reset-token.entity';
-import dayjs from 'dayjs';
-import utc from 'dayjs/plugin/utc';
-import timezone from 'dayjs/plugin/timezone';
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
+const client = new OAuth2Client(process.env.FIREBASE_CLIENT_ID);
 
 @Injectable()
 export class AuthService {
@@ -145,5 +147,33 @@ export class AuthService {
                 time: agoraRecife.format('HH:mm:ss'),
             },
         });
+    }
+    
+    async loginWithGoogle(idToken: string): Promise<Usuario | null> {
+        try{
+            const ticket = await client.verifyIdToken({
+                idToken,
+                audience: this.configService.get<string>('258403147124-t26ojh6tat7v71plqp0rmn1e7gt1prh4.apps.googleusercontent.com'),
+            });
+
+            const payload = ticket.getPayload();
+
+            if(!payload || !payload.email || !payload.name || !payload.picture) {
+                throw new UnauthorizedException('Token inválido ou incompleto.');
+            }
+
+            const { email, name, picture } = payload;
+
+            const user = {
+                email,
+                name,
+                picture,
+                googleId: payload!.sub, // Google ID
+            };
+
+            return this.usuarioService.findOrCreateGoogleUser(user);
+        } catch(error){
+            throw new Error('Método firebaseLogin não implementado ainda');
+        }
     }
 }

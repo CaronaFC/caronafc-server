@@ -6,24 +6,16 @@ import { AppService } from './app.service';
 import { AuthModule } from './modules/auth/auth.module';
 import { AvaliacaoModule } from './modules/avaliacao/avaliacao.module';
 import { JogoModule } from './modules/jogo/jogo.module';
+import { SolicitacaoModule } from './modules/solicitacao/solicitacao.module';
 import { TipoVeiculoModule } from './modules/tipo-veiculo/tipo-veiculo.module';
 import { UsuarioModule } from './modules/usuario/usuario.module';
 import { VeiculoModule } from './modules/veiculo/veiculo.module';
 import { ViagemModule } from './modules/viagem/viagem.module';
-<<<<<<< HEAD
-import { SolicitacaoModule } from './modules/solicitacao/solicitacao.module';
-=======
->>>>>>> 0f155520eaa393342b5db16c8dfe37d372667d12
 
 import { MailerModule } from '@nestjs-modules/mailer';
 import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handlebars.adapter';
 import { join } from 'path';
-<<<<<<< HEAD
 import { TeamsModule } from './modules/teams/teams.module';
-=======
-import { PagamentoModule } from './modules/pagamento/pagamento.module';
-import { MercadopagoModule } from './modules/mercadopago/mercadopago.module';
->>>>>>> 0f155520eaa393342b5db16c8dfe37d372667d12
 
 @Module({
   imports: [
@@ -34,10 +26,7 @@ import { MercadopagoModule } from './modules/mercadopago/mercadopago.module';
     AvaliacaoModule,
     TipoVeiculoModule,
     AuthModule,
-<<<<<<< HEAD
     SolicitacaoModule,
-=======
->>>>>>> 0f155520eaa393342b5db16c8dfe37d372667d12
     ConfigModule.forRoot({
       isGlobal: true,
     }),
@@ -78,13 +67,7 @@ import { MercadopagoModule } from './modules/mercadopago/mercadopago.module';
       }),
     }),
 
-<<<<<<< HEAD
     TeamsModule,
-=======
-    PagamentoModule,
-
-    MercadopagoModule,
->>>>>>> 0f155520eaa393342b5db16c8dfe37d372667d12
   ],
   controllers: [AppController],
   providers: [AppService],

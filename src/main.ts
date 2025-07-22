@@ -6,17 +6,7 @@ import { AppModule } from './app.module';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-<<<<<<< HEAD
   app.useGlobalPipes(new ValidationPipe());
-=======
-  app.useGlobalPipes(
-    new ValidationPipe({
-      whitelist: true,
-      forbidNonWhitelisted: true,
-      transform: true,
-    }),
-  );
->>>>>>> 0f155520eaa393342b5db16c8dfe37d372667d12
 
   app.enableCors({
     origin: "*",

@@ -1,15 +1,10 @@
-<<<<<<< HEAD
 import { Injectable, NotFoundException } from '@nestjs/common';
-=======
-import { Injectable } from '@nestjs/common';
->>>>>>> 0f155520eaa393342b5db16c8dfe37d372667d12
 import { InjectRepository } from '@nestjs/typeorm';
 import { Usuario } from 'src/modules/usuario/usuario.entity';
-import { Repository } from 'typeorm';
-import { Viagem } from '../viagem.entity';
-<<<<<<< HEAD
-import { CreateViagemDto } from '../dto/create-viagem.dto';
 import { Veiculo } from 'src/modules/veiculo/veiculo.entity';
+import { Repository } from 'typeorm';
+import { CreateViagemDto } from '../dto/create-viagem.dto';
+import { Viagem } from '../viagem.entity';
 
 @Injectable()
 export class ViagemService {
@@ -110,62 +105,12 @@ export class ViagemService {
     }
     await this.viagemRepository.remove(viagem);
   }
+
+  async getById(id: number): Promise<Viagem> {
+    const viagem = await this.viagemRepository.findOneBy({ id });
+    if (!viagem) {
+      throw new NotFoundException('Viagem não encontrada');
+    }
+    return viagem;
+  }
 }
-=======
-import { Jogo } from 'src/modules/jogo/jogo.entity';
-import { CreateViagemDto } from '../dto/create-viagem.dto';
-
-@Injectable()
-export class ViagemService {
-
-    constructor(
-        @InjectRepository(Viagem)
-        private viagemRepository: Repository<Viagem>,
-
-        @InjectRepository(Usuario)
-        private usuarioRepository: Repository<Usuario>,
-
-        @InjectRepository(Jogo)
-        private jogoRepository: Repository<Jogo>,
-    ) { }
-
-    async create(createViagemDto: CreateViagemDto): Promise<Viagem> {
-        const { motoristaId, jogo, origem_lat, origem_long, horario, qtdVagas, temRetorno, valorPorPessoa } = createViagemDto;
-        const motorista = await this.usuarioRepository.findOneBy({ id: motoristaId });
-        if (!motorista) throw new Error('Motorista não encontrado');
-
-        const viagem = this.viagemRepository.create({
-            motorista,
-            jogo,
-            origem_lat,
-            origem_long,
-            horario: new Date(horario),
-            qtdVagas,
-            temRetorno,
-            valorPorPessoa,
-            passageiros: [], // inicia vazio
-        });
-        console.log("Criando viagem:", viagem);
-        return this.viagemRepository.save(viagem);
-    }
-
-
-    async findAll(): Promise<Viagem[]> {
-        return this.viagemRepository.find({
-            relations: ['motorista', 'passageiros'], // Carrega relações importantes
-        });
-
-    }
-
-    async findByMotoristaId(motoristaId: number): Promise<Viagem[]> {
-        return this.viagemRepository.find({
-            where: {
-                motorista: {
-                    id: motoristaId
-                }
-            },
-            relations: ['motorista', 'passageiros'], // adjust as needed
-        });
-    }
-}
->>>>>>> 0f155520eaa393342b5db16c8dfe37d372667d12
