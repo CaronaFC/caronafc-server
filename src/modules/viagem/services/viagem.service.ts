@@ -105,4 +105,17 @@ export class ViagemService {
     }
     await this.viagemRepository.remove(viagem);
   }
+
+  async findById(viagemId: number): Promise<Viagem> {
+    const viagem = await this.viagemRepository.findOne({
+      where: { id: viagemId },
+      relations: ['motorista', 'passageiros', 'veiculo'],
+    });
+
+    if (!viagem) {
+      throw new NotFoundException('Viagem não encontrada');
+    }
+
+    return viagem;
+  }
 }
