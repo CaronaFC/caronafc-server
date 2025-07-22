@@ -5,6 +5,7 @@ import { Repository } from 'typeorm';
 import { Viagem } from '../viagem.entity';
 import { CreateViagemDto } from '../dto/create-viagem.dto';
 import { Veiculo } from 'src/modules/veiculo/veiculo.entity';
+import { ViagemStatus } from "../viagem.entity"
 
 @Injectable()
 export class ViagemService {
@@ -118,4 +119,10 @@ export class ViagemService {
 
     return viagem;
   }
+
+  async updateStatus(id: number, status: ViagemStatus): Promise<Viagem> {
+  const viagem = await this.findById(id);
+  viagem.status = status;
+  return this.viagemRepository.save(viagem);
+}
 }
