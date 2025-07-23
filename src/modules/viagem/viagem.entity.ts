@@ -13,9 +13,9 @@ import { CreateJogoDto } from '../jogo/dto/create-jogo.dto';
 import { Veiculo } from '../veiculo/veiculo.entity';
 
 export enum ViagemStatus {
-  WAIT = 'wait',
-  PROGRESS = 'progress',
-  FINISHED = 'finished',
+  ESPERA = 'espera',
+  ANDAMENTO = 'andamento',
+  FINALIZADA = 'finalizada',
 }
 
 @Entity('viagem')
@@ -67,7 +67,7 @@ export class Viagem {
   @Column({
     type: 'enum',
     enum: ViagemStatus,
-    default: ViagemStatus.WAIT,
+    default: ViagemStatus.ESPERA,
     nullable: false,
   })
   status: ViagemStatus;

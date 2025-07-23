@@ -27,7 +27,7 @@ export class Usuario {
     @Column({ nullable: false })
     senha: string;
 
-    @Column({ nullable: true, type: 'varchar', length: 255 })
+    @Column({ nullable: true, type: 'text' })
     imagem: string;
 
     @Column({ type: 'date', nullable: true })
@@ -55,7 +55,7 @@ export class Usuario {
         // Hashes do bcrypt geralmente começam com "$2b$".
         if (!this.senha.startsWith('$2b$')) {
           this.senha = await bcrypt.hash(this.senha, 10);
-      }
-    }
-  }
+        }
+      }
+    }
 }
