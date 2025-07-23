@@ -38,8 +38,8 @@ export class CreateUsuarioDto {
     senha: string;
 
     @ApiPropertyOptional({
-        description: 'URL da imagem do usuário',
-        example: 'https://meusite.com/imagens/usuario1.jpg'
+        description: 'String base64 da imagem do usuário',
+        example: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUA...',
     })
     imagem?: string;
 
