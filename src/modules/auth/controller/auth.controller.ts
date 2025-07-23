@@ -1,3 +1,7 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
+
 import {
   Body,
   Controller,
@@ -30,7 +34,8 @@ export class AuthController {
   @ApiBody({ type: LoginDto })
   async login(@Request() req) {
     const token = this.authService.login(req.user.id);
-    return { id: req.user.id, token };
+    const userData = await this.usuarioService.findOne(req.user.id);
+    return { id: req.user.id, token, usuario: userData };
   }
 
   @Post('forgot-password')
