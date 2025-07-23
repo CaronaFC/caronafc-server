@@ -11,6 +11,7 @@ import { UsuarioModule } from './modules/usuario/usuario.module';
 import { VeiculoModule } from './modules/veiculo/veiculo.module';
 import { ViagemModule } from './modules/viagem/viagem.module';
 import { SolicitacaoModule } from './modules/solicitacao/solicitacao.module';
+import { DashboardModule } from './modules/dashboard/dashboard.module';
 
 import { MailerModule } from '@nestjs-modules/mailer';
 import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handlebars.adapter';
@@ -27,6 +28,7 @@ import { TeamsModule } from './modules/teams/teams.module';
     TipoVeiculoModule,
     AuthModule,
     SolicitacaoModule,
+    DashboardModule,
     ConfigModule.forRoot({
       isGlobal: true,
     }),
