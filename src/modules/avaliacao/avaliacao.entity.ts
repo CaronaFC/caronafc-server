@@ -1,4 +1,4 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { Usuario } from "../usuario/usuario.entity";
 import { Viagem } from "../viagem/viagem.entity";
 
@@ -7,17 +7,20 @@ export class Avaliacao {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @ManyToOne(() => Usuario, usuario => usuario.avaliacoes, { nullable: true })
-    usuario_reportado: Usuario;
-
-    @ManyToOne(() => Usuario, { nullable: false })
-    usuario_reportante: Usuario;
-
-    @Column()
-    mensagem: string;
+    @CreateDateColumn()
+    criadoEm: Date;
 
     @Column()
     nota: number;
+
+    @ManyToOne(() => Usuario, { nullable: true })
+    usuario_avaliado: Usuario;
+
+    @ManyToOne(() => Usuario, { nullable: false })
+    usuario_avaliador: Usuario;
+
+    @Column({ type: 'text', nullable: true })
+    comentario?: string;
 
     @ManyToOne(() => Viagem, { nullable: false })
     viagem: Viagem;
