@@ -77,6 +77,19 @@ export class ViagemService {
       relations: ['motorista', 'passageiros'], // adjust as needed
     });
   }
+  async findByUsuarioId(usuarioId: number): Promise<Viagem[]> {
+  const viagens = await this.viagemRepository.find({
+    where: {
+      passageiros: {
+        id: usuarioId,
+      }
+    },
+    relations: ['passageiros', 'motorista'],
+  });
+
+  return viagens;
+}
+
 
   async adicionarPassageiro(
     viagemId: number,

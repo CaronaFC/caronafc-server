@@ -36,7 +36,7 @@ export class Usuario {
     @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
     data_criacao: Date;
 
-    @OneToMany(() => Avaliacao, avaliacao => avaliacao.usuario_reportado, { nullable: true })
+    @OneToMany(() => Avaliacao, avaliacao => avaliacao.usuario_avaliado, { nullable: true })
     avaliacoes: Avaliacao[];
 
     @OneToMany(() => Veiculo, veiculo => veiculo.usuario, { nullable: true })

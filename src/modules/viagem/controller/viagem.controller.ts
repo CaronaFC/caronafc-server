@@ -7,6 +7,7 @@ import {
   Param,
   Patch,
   Delete,
+  ParseIntPipe,
 } from '@nestjs/common';
 import {
   ApiBearerAuth,
@@ -64,6 +65,19 @@ export class ViagemController {
       return this.viagemService.findByMotoristaId(Number(filtro.motoristaId));
     }
     return this.viagemService.findAll();
+  }
+
+  @Get(':usuarioId')
+  @ApiOperation({ summary: 'Lista todas as viagens de um usuário' })
+  @ApiResponse({
+    status: 200,
+    description: 'Viagens do usuário encontradas com sucesso',
+    type: [Viagem],
+  })
+  async findByUsuarioId(
+    @Param('usuarioId',ParseIntPipe) usuarioId: number,
+  ): Promise<Viagem[]> {
+    return this.viagemService.findByUsuarioId(Number(usuarioId));
   }
 
   @Patch(':id/adicionar-passageiro/:usuarioId')
