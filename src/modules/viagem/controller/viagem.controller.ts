@@ -8,6 +8,7 @@ import {
   Patch,
   Delete,
   ParseIntPipe,
+  Req,
 } from '@nestjs/common';
 import {
   ApiBearerAuth,
@@ -125,9 +126,13 @@ export class ViagemController {
   @Delete(':id')
   @ApiOperation({ summary: 'Remove uma viagem pelo ID' })
   @ApiResponse({ status: 200, description: 'Viagem removida com sucesso' })
+  @ApiResponse({ status: 403, description: 'Apenas o motorista pode excluir esta viagem' })
   @ApiResponse({ status: 404, description: 'Viagem não encontrada' })
-  async delete(@Param('id') id: number): Promise<{ message: string }> {
-    await this.viagemService.delete(Number(id));
+  async delete(
+    @Param('id', ParseIntPipe) id: number,
+    @Req() req: any,
+  ): Promise<{ message: string }> {
+    await this.viagemService.delete(id, req.user.id);
     return { message: 'Viagem removida com sucesso' };
   }
 

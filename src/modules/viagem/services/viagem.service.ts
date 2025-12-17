@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException, ForbiddenException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Usuario } from 'src/modules/usuario/usuario.entity';
 import { Repository } from 'typeorm';
@@ -6,6 +6,7 @@ import { Viagem } from '../viagem.entity';
 import { CreateViagemDto } from '../dto/create-viagem.dto';
 import { Veiculo } from 'src/modules/veiculo/veiculo.entity';
 import { ViagemStatus } from "../viagem.entity"
+import { SolicitacaoViagem } from 'src/modules/solicitacao/solicitacao.entity';
 
 @Injectable()
 export class ViagemService {
@@ -18,6 +19,9 @@ export class ViagemService {
 
     @InjectRepository(Veiculo)
     private veiculoRepository: Repository<Veiculo>,
+
+    @InjectRepository(SolicitacaoViagem)
+    private solicitacaoRepository: Repository<SolicitacaoViagem>,
   ) {}
 
   async create(createViagemDto: CreateViagemDto): Promise<Viagem> {
@@ -122,11 +126,24 @@ export class ViagemService {
     return this.viagemRepository.save(viagem);
   }
 
-  async delete(id: number): Promise<void> {
-    const viagem = await this.viagemRepository.findOneBy({ id });
+  async delete(id: number, usuarioId: number): Promise<void> {
+    const viagem = await this.viagemRepository.findOne({
+      where: { id },
+      relations: ['motorista'],
+    });
     if (!viagem) {
       throw new NotFoundException('Viagem não encontrada');
     }
+    if (viagem.motorista.id !== usuarioId) {
+      throw new ForbiddenException('Apenas o motorista pode excluir esta viagem');
+    }
+    if (viagem.status === ViagemStatus.FINALIZADA) {
+      throw new ForbiddenException('Não é possível excluir uma viagem finalizada');
+    }
+
+    // Remove todas as solicitações associadas à viagem
+    await this.solicitacaoRepository.delete({ viagem: { id } });
+
     await this.viagemRepository.remove(viagem);
   }
 

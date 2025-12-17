@@ -102,7 +102,7 @@ export class UsuarioService {
   ): Promise<Usuario> {
     const usuario = await this.usuarioRepository.findOne({
       where: { id },
-      relations: ['veiculos', 'avaliacao'],
+      relations: ['veiculos', 'avaliacoes'],
     });
 
     if (!usuario) {

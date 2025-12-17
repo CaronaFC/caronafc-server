@@ -7,9 +7,10 @@ import { ViagemService } from './services/viagem.service';
 import { Viagem } from './viagem.entity';
 import { Veiculo } from '../veiculo/veiculo.entity';
 import { ViagemGateway } from './viagem.gateway';
+import { SolicitacaoViagem } from '../solicitacao/solicitacao.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Viagem, Usuario, Jogo, Veiculo])],
+  imports: [TypeOrmModule.forFeature([Viagem, Usuario, Jogo, Veiculo, SolicitacaoViagem])],
   providers: [ViagemService, ViagemGateway],
   controllers: [ViagemController],
 })
