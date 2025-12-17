@@ -7,7 +7,6 @@ import {
   Patch,
   Post,
   NotFoundException,
-  BadRequestException,
   InternalServerErrorException,
   ParseIntPipe,
   UseGuards,
@@ -15,7 +14,6 @@ import {
 } from '@nestjs/common';
 import {
   ApiBearerAuth,
-  ApiBody,
   ApiOperation,
   ApiResponse,
   ApiTags,
@@ -54,12 +52,8 @@ export class UsuarioController {
   @ApiResponse({ status: 201, description: 'Usuário criado com sucesso' })
   @ApiResponse({ status: 400, description: 'Dados inválidos fornecidos' })
   async create(@Body() createUsuarioDto: CreateUsuarioDto) {
-    try {
-      const usuario = await this.usuarioService.create(createUsuarioDto);
-      return { message: 'Usuário criado com sucesso', data: usuario };
-    } catch (error) {
-      throw error;
-    }
+    const usuario = await this.usuarioService.create(createUsuarioDto);
+    return { message: 'Usuário criado com sucesso', data: usuario };
   }
 
   @Get()

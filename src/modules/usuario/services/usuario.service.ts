@@ -16,7 +16,7 @@ export class UsuarioService {
   ) { }
 
   async create(createUsuarioDto: CreateUsuarioDto): Promise<Usuario> {
-    const { veiculos,email, ...rest } = createUsuarioDto;
+    const { veiculos, email, ...rest } = createUsuarioDto;
 
     const existente = await this.usuarioRepository.findOne({
       where: { email },
@@ -24,7 +24,7 @@ export class UsuarioService {
     if (existente) {
       throw new BadRequestException('Já existe um usuário com este e-mail. Faça login ou redefina sua senha');
     }
-    const usuario = this.usuarioRepository.create(rest);
+    const usuario = this.usuarioRepository.create({ ...rest, email });
 
     if (veiculos && veiculos.length > 0) {
       const veiculosEntities = await this.veiculoRepository.findBy({
