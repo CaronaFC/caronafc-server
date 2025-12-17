@@ -58,7 +58,7 @@ export class UsuarioController {
       const usuario = await this.usuarioService.create(createUsuarioDto);
       return { message: 'Usuário criado com sucesso', data: usuario };
     } catch (error) {
-      throw new BadRequestException('Erro ao criar usuário');
+      throw error;
     }
   }
 
