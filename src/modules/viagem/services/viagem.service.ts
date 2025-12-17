@@ -77,17 +77,27 @@ export class ViagemService {
       relations: ['motorista', 'passageiros'], // adjust as needed
     });
   }
-  async findByUsuarioId(usuarioId: number): Promise<Viagem[]> {
-  const viagens = await this.viagemRepository.find({
-    where: {
-      passageiros: {
-        id: usuarioId,
-      }
-    },
-    relations: ['passageiros', 'motorista'],
-  });
 
-  return viagens;
+  async findByStatus(status: ViagemStatus): Promise<Viagem[]> {
+    return this.viagemRepository.find({
+      where: {
+        status: status,
+      },
+      relations: ['motorista', 'passageiros'], // adjust as needed
+    });
+  }
+
+  async findByUsuarioId(usuarioId: number, status?: ViagemStatus): Promise<Viagem[]> {
+    const viagens = await this.viagemRepository.find({
+      where: {
+        passageiros: {
+          id: usuarioId,
+        }, ...(status ? { status: status } : {}),
+      },
+      relations: ['passageiros', 'motorista'],
+    });
+
+    return viagens;
 }
 
 

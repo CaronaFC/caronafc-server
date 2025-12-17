@@ -61,9 +61,21 @@ export class ViagemController {
     type: [Viagem],
   })
   async findAll(@Query() filtro: FiltroViagemDto): Promise<Viagem[]> {
-    if (filtro.motoristaId) {
-      return this.viagemService.findByMotoristaId(Number(filtro.motoristaId));
+    const { motoristaId, status } = filtro;
+
+    if (motoristaId && status) {
+      const viagensPorMotorista = await this.viagemService.findByMotoristaId(Number(motoristaId));
+      return viagensPorMotorista.filter((viagem) => viagem.status === status);
     }
+
+    if (motoristaId) {
+      return this.viagemService.findByMotoristaId(Number(motoristaId));
+    }
+
+    if (status) {
+      return this.viagemService.findByStatus(status);
+    }
+
     return this.viagemService.findAll();
   }
 
@@ -76,7 +88,12 @@ export class ViagemController {
   })
   async findByUsuarioId(
     @Param('usuarioId',ParseIntPipe) usuarioId: number,
+    @Query() filtro: FiltroViagemDto,
   ): Promise<Viagem[]> {
+    if (filtro.status) {
+      return this.viagemService.findByUsuarioId(Number(usuarioId), filtro.status);
+    }
+
     return this.viagemService.findByUsuarioId(Number(usuarioId));
   }
 
