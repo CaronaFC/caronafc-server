@@ -67,7 +67,7 @@ export class ViagemController {
     return this.viagemService.findAll();
   }
 
-  @Get(':usuarioId')
+  @Get('/usuario/:usuarioId')
   @ApiOperation({ summary: 'Lista todas as viagens de um usuário' })
   @ApiResponse({
     status: 200,
