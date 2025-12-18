@@ -6,7 +6,7 @@ import { Viagem } from '../viagem.entity';
 import { CreateViagemDto } from '../dto/create-viagem.dto';
 import { Veiculo } from 'src/modules/veiculo/veiculo.entity';
 import { ViagemStatus } from "../viagem.entity"
-import { SolicitacaoViagem } from 'src/modules/solicitacao/solicitacao.entity';
+import { SolicitacaoViagem, StatusSolicitacao } from 'src/modules/solicitacao/solicitacao.entity';
 
 @Injectable()
 export class ViagemService {
@@ -161,8 +161,17 @@ export class ViagemService {
   }
 
   async updateStatus(id: number, status: ViagemStatus): Promise<Viagem> {
-  const viagem = await this.findById(id);
-  viagem.status = status;
-  return this.viagemRepository.save(viagem);
-}
+    const viagem = await this.findById(id);
+
+    if (status === ViagemStatus.ANDAMENTO) {
+      // Remove todas as solicitações pendentes quando a viagem inicia
+      await this.solicitacaoRepository.delete({
+        viagem: { id },
+        status: StatusSolicitacao.PENDENTE,
+      });
+    }
+
+    viagem.status = status;
+    return this.viagemRepository.save(viagem);
+  }
 }

@@ -102,4 +102,36 @@ export class SolicitacaoService {
       order: { dataSolicitacao: 'DESC' },
     });
   }
+
+  async delete(solicitacaoId: number, usuarioId: number): Promise<void> {
+    const solicitacao = await this.solicitacaoRepository.findOne({
+      where: { id: solicitacaoId },
+      relations: ['usuario'],
+    });
+
+    if (!solicitacao) {
+      throw new NotFoundException('Solicitação não encontrada');
+    }
+
+    if (solicitacao.usuario.id !== usuarioId) {
+      throw new ForbiddenException(
+        'Apenas o usuário que criou a solicitação pode cancelá-la',
+      );
+    }
+
+    if (solicitacao.status !== StatusSolicitacao.PENDENTE) {
+      throw new BadRequestException(
+        'Apenas solicitações com status pendente podem ser canceladas',
+      );
+    }
+
+    await this.solicitacaoRepository.delete(solicitacaoId);
+  }
+
+  async deleteAllPendentesByViagemId(viagemId: number): Promise<void> {
+    await this.solicitacaoRepository.delete({
+      viagem: { id: viagemId },
+      status: StatusSolicitacao.PENDENTE,
+    });
+  }
 }

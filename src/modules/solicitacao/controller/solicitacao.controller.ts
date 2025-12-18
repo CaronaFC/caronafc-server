@@ -1,8 +1,10 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   Param,
+  ParseIntPipe,
   Patch,
   Post,
   Req,
@@ -77,5 +79,28 @@ export class SolicitacaoController {
   @ApiResponse({ status: 200, type: [SolicitacaoViagem] })
   async listarPorViagem(@Param('id') id: number): Promise<SolicitacaoViagem[]> {
     return this.solicitacaoService.listarSolicitacoesPorViagem(id);
+  }
+
+  @Delete(':id')
+  @ApiOperation({ summary: 'Cancela uma solicitação pendente' })
+  @ApiResponse({
+    status: 200,
+    description: 'Solicitação cancelada com sucesso',
+  })
+  @ApiResponse({
+    status: 400,
+    description: 'Apenas solicitações com status pendente podem ser canceladas',
+  })
+  @ApiResponse({
+    status: 403,
+    description: 'Apenas o usuário que criou a solicitação pode cancelá-la',
+  })
+  @ApiResponse({ status: 404, description: 'Solicitação não encontrada' })
+  async delete(
+    @Param('id', ParseIntPipe) id: number,
+    @Req() req: any,
+  ): Promise<{ message: string }> {
+    await this.solicitacaoService.delete(id, req.user.id);
+    return { message: 'Solicitação cancelada com sucesso' };
   }
 }
