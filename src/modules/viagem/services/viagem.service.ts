@@ -67,7 +67,8 @@ export class ViagemService {
 
   async findAll(): Promise<Viagem[]> {
     return this.viagemRepository.find({
-      relations: ['motorista', 'passageiros'], // Carrega relações importantes
+      relations: ['motorista', 'passageiros'],
+      order: { criadoEm: 'DESC' },
     });
   }
 
@@ -78,7 +79,8 @@ export class ViagemService {
           id: motoristaId,
         },
       },
-      relations: ['motorista', 'passageiros'], // adjust as needed
+      relations: ['motorista', 'passageiros'],
+      order: { criadoEm: 'DESC' },
     });
   }
 
@@ -87,7 +89,8 @@ export class ViagemService {
       where: {
         status: status,
       },
-      relations: ['motorista', 'passageiros'], // adjust as needed
+      relations: ['motorista', 'passageiros'],
+      order: { criadoEm: 'DESC' },
     });
   }
 
@@ -99,12 +102,11 @@ export class ViagemService {
         }, ...(status ? { status: status } : {}),
       },
       relations: ['passageiros', 'motorista'],
+      order: { criadoEm: 'DESC' },
     });
 
     return viagens;
-}
-
-
+  }
   async adicionarPassageiro(
     viagemId: number,
     usuarioId: number,
