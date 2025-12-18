@@ -5,6 +5,8 @@ import { DeleteResult, In, Repository } from 'typeorm';
 import { CreateUsuarioDto } from '../dto/create-usuario.dto';
 import { UpdateUsuarioDto } from '../dto/update-usuario.dto';
 import { Usuario } from '../usuario.entity';
+// 1. Importação necessária
+import { MailerService } from '@nestjs-modules/mailer';
 
 @Injectable()
 export class UsuarioService {
@@ -13,6 +15,8 @@ export class UsuarioService {
     private readonly usuarioRepository: Repository<Usuario>,
     @InjectRepository(Veiculo)
     private readonly veiculoRepository: Repository<Veiculo>,
+    // 2. Injeção do serviço de e-mail
+    private readonly mailerService: MailerService,
   ) { }
 
   async create(createUsuarioDto: CreateUsuarioDto): Promise<Usuario> {
@@ -33,7 +37,25 @@ export class UsuarioService {
       usuario.veiculos = veiculosEntities;
     }
 
-    return this.usuarioRepository.save(usuario);
+    // Salvamos o usuário numa variável para garantir que foi criado antes de enviar o e-mail
+    const novoUsuario = await this.usuarioRepository.save(usuario);
+
+    // 3. Lógica de Envio de E-mail de Boas-Vindas
+    try {
+      await this.mailerService.sendMail({
+        to: novoUsuario.email,
+        subject: 'Bem-vindo ao CaronaFC!',
+        template: 'boas-vindas', // Certifique-se de que o arquivo .hbs existe
+        context: {
+          nome: novoUsuario.nome_completo,
+        },
+      });
+    } catch (error) {
+      // Logamos o erro mas não impedimos o cadastro
+      console.error('Erro ao enviar e-mail de boas-vindas:', error);
+    }
+
+    return novoUsuario;
   }
 
   findAll(): Promise<Usuario[]> {
