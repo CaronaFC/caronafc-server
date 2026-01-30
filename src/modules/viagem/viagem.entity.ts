@@ -1,32 +1,77 @@
-import { Column, Entity, JoinTable, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
-import { Jogo } from "../jogo/jogo.entity";
-import { Usuario } from "../usuario/usuario.entity";
+import {
+  Column,
+  Entity,
+  JoinTable,
+  ManyToMany,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+  OneToMany,
+} from 'typeorm';
+import { SolicitacaoViagem } from '../solicitacao/solicitacao.entity';
+import { Usuario } from '../usuario/usuario.entity';
+import { CreateJogoDto } from '../jogo/dto/create-jogo.dto';
+import { Veiculo } from '../veiculo/veiculo.entity';
+
+export enum ViagemStatus {
+  ESPERA = 'espera',
+  ANDAMENTO = 'andamento',
+  FINALIZADA = 'finalizada',
+}
 
 @Entity('viagem')
-export class Viagem{
+export class Viagem {
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @PrimaryGeneratedColumn()
-    id: number;
+  @ManyToOne(() => Usuario, { nullable: false })
+  @JoinTable()
+  motorista: Usuario;
 
-    @ManyToOne(() => Usuario, { nullable: false})
-    motorista: Usuario;
+  @OneToMany(() => SolicitacaoViagem, (solicitacao) => solicitacao.viagem)
+  solicitacoes: SolicitacaoViagem[];
 
-    @Column(() => Usuario)
-    @JoinTable()
-    passageiro: Usuario[];
+  @ManyToMany(() => Usuario, { cascade: true })
+  @JoinTable()
+  passageiros: Usuario[];
 
-    @ManyToOne(() => Jogo,{ nullable: false})
-    jogo: Jogo;
+  @Column('json', { nullable: false })
+  jogo: CreateJogoDto;
 
-    @Column({ nullable: false})
-    origim_lat: number;
+  @Column('double precision', { nullable: false })
+  origem_lat: number;
 
-    @Column({ nullable: false})
-    origim_long: number;
+  @Column('double precision', { nullable: false })
+  origem_long: number;
 
-    @Column({ nullable: false})
-    horiario: Date;
+  @Column('double precision', { nullable: false })
+  destino_lat: number;
 
-    @Column({ nullable:false })
-    qtdVagas: number;
+  @Column('double precision', { nullable: false })
+  destino_long: number;
+
+  @Column({ nullable: true })
+  horario: Date;
+
+  @Column({ nullable: false })
+  qtdVagas: number;
+
+  @Column({ default: false })
+  temRetorno: boolean;
+
+  @Column('decimal', { nullable: true })
+  valorPorPessoa: number;
+
+  @ManyToOne(() => Veiculo, { nullable: false, eager: true })
+  veiculo: Veiculo;
+
+  @Column({
+    type: 'enum',
+    enum: ViagemStatus,
+    default: ViagemStatus.ESPERA,
+    nullable: false,
+  })
+  status: ViagemStatus;
+
+  @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
+  criadoEm: Date;
 }

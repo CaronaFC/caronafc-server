@@ -79,25 +79,29 @@ caronafc-server/
 - **dotenv** — Carregamento de variáveis de ambiente a partir do arquivo `.env`.
 - **Jest** — Testes unitários e e2e.
 - **Docker, Docker Compose** — Containerização da aplicação e do banco de dados.
+- **Soccer Data Api** — API de jogos
 
 > Consulte o arquivo `package.json` para a lista
 
 ## Relacionamento do Banco de Dados
 
 ### Usuário (`Usuario`)
-- **Um usuário pode cadastrar vários veículos**  
-  - Relacionamento: **OneToMany**  
-  - Exemplo:  
+
+- **Um usuário pode cadastrar vários veículos**
+  - Relacionamento: **OneToMany**
+  - Exemplo:
     - Um usuário possui uma lista de veículos (`veiculos: Veiculo[]`)
     - Cada veículo pertence a um único usuário (`usuario: Usuario`)
 
 ### Veículo (`Veiculo`)
+
 - **Cada veículo pertence a um único usuário**
   - Relacionamento: **ManyToOne**
   - Exemplo:
     - Campo na entidade `Veiculo`: `@ManyToOne(() => Usuario) usuario: Usuario;`
 
 ### Viagem (`Viagem`)
+
 - **Cada viagem tem um motorista**
   - Relacionamento: **ManyToOne**
   - Exemplo:
@@ -131,6 +135,7 @@ Viagem
 ---
 
 Esses relacionamentos garantem que:
+
 - Um usuário pode cadastrar vários veículos.
 - Uma viagem sempre tem um motorista (usuário).
 - Uma viagem pode ter vários passageiros (usuários).
@@ -140,6 +145,7 @@ Consulte os arquivos de entidade no diretório `src/modules/` para ver a impleme
 ## Features
 
 - User authentication and registration
+- **Google/FIrebase login integration**
 - Carpool (carona) creation and management
 - User profile management
 - RESTful API endpoints
@@ -148,6 +154,31 @@ Consulte os arquivos de entidade no diretório `src/modules/` para ver a impleme
 - Unit and e2e testing
 
 ---
+
+## ID's times
+
+### endpoint: https://api.soccerdataapi.com/team/?team_id=4138&auth_token=bcaa4c172d7604813d797d51aad6decc7d623cfd
+
+- Ceará: 3955
+- Juventude: 3963
+- Vitoria: 3969
+- Sport: 3961
+- São Paulo: 3067
+- corinthians: 3949
+- Bahia: 2810
+- Santos: 3947
+- Palmeiras: 3948
+- Flamengo: 3946
+- Gremio: 3207
+- Fluminense: 3344
+- Internacional: 2894
+- Fortaleza: 3950
+- Botafogo: 3954
+- Mirassol: 3984
+- Vasco da Gama: 3952
+- Atlético-MG: 3953
+- Cruzeiro: 3956
+- RB Bragantino: 3222
 
 ## Getting Started
 
@@ -168,12 +199,15 @@ Consulte os arquivos de entidade no diretório `src/modules/` para ver a impleme
 
    Copy `.env.example` to `.env` and update the values as needed.  
    Exemplo de `.env`:
+
    ```
    DATABASE_HOST=db
    DATABASE_PORT=5432
    DATABASE_USER=root
    DATABASE_PASSWORD=caronafc
    DATABASE_NAME=caronafc
+
+   JWT_SECRET=82a3f8a665e92a1858fb1bc4897812c31f8cb3b6d01a7846378314f47dfa993a
    ```
 
 4. **Run the development server:**

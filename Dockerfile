@@ -9,4 +9,6 @@ COPY . .
 
 RUN npm run build
 
-CMD ["npm", "run", "start:prod"]
+CMD ["npm", "run", "start:dev"]
+
+COPY src/templates ./dist/templates

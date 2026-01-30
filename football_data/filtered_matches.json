@@ -1,0 +1,3122 @@
+[
+  {
+    "id": 950250,
+    "date": "12/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3963,
+        "name": "Juventude"
+      },
+      "away": {
+        "id": 3961,
+        "name": "Sport Recife"
+      }
+    }
+  },
+  {
+    "id": 950243,
+    "date": "12/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3949,
+        "name": "Corinthians"
+      },
+      "away": {
+        "id": 3222,
+        "name": "RB Bragantino"
+      }
+    }
+  },
+  {
+    "id": 950244,
+    "date": "12/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3947,
+        "name": "Santos"
+      },
+      "away": {
+        "id": 3948,
+        "name": "Palmeiras"
+      }
+    }
+  },
+  {
+    "id": 950245,
+    "date": "12/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3984,
+        "name": "Mirassol"
+      },
+      "away": {
+        "id": 3344,
+        "name": "Fluminense"
+      }
+    }
+  },
+  {
+    "id": 950246,
+    "date": "12/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3956,
+        "name": "Cruzeiro"
+      },
+      "away": {
+        "id": 3207,
+        "name": "Gremio"
+      }
+    }
+  },
+  {
+    "id": 950248,
+    "date": "12/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 2810,
+        "name": "Bahia"
+      },
+      "away": {
+        "id": 3953,
+        "name": "Atletico Mineiro"
+      }
+    }
+  },
+  {
+    "id": 950249,
+    "date": "12/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3950,
+        "name": "Fortaleza"
+      },
+      "away": {
+        "id": 3955,
+        "name": "Ceara"
+      }
+    }
+  },
+  {
+    "id": 950241,
+    "date": "12/07/2025",
+    "time": "19:30",
+    "teams": {
+      "home": {
+        "id": 3946,
+        "name": "Flamengo"
+      },
+      "away": {
+        "id": 3067,
+        "name": "Sao Paulo"
+      }
+    }
+  },
+  {
+    "id": 950247,
+    "date": "12/07/2025",
+    "time": "19:30",
+    "teams": {
+      "home": {
+        "id": 2894,
+        "name": "Internacional"
+      },
+      "away": {
+        "id": 3969,
+        "name": "Vitoria"
+      }
+    }
+  },
+  {
+    "id": 950242,
+    "date": "12/07/2025",
+    "time": "21:30",
+    "teams": {
+      "home": {
+        "id": 3952,
+        "name": "Vasco da Gama"
+      },
+      "away": {
+        "id": 3954,
+        "name": "Botafogo"
+      }
+    }
+  },
+  {
+    "id": 950257,
+    "date": "16/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3207,
+        "name": "Gremio"
+      },
+      "away": {
+        "id": 3950,
+        "name": "Fortaleza"
+      }
+    }
+  },
+  {
+    "id": 950256,
+    "date": "16/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3953,
+        "name": "Atletico Mineiro"
+      },
+      "away": {
+        "id": 3961,
+        "name": "Sport Recife"
+      }
+    }
+  },
+  {
+    "id": 950259,
+    "date": "16/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3955,
+        "name": "Ceara"
+      },
+      "away": {
+        "id": 3949,
+        "name": "Corinthians"
+      }
+    }
+  },
+  {
+    "id": 950255,
+    "date": "16/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3222,
+        "name": "RB Bragantino"
+      },
+      "away": {
+        "id": 3067,
+        "name": "Sao Paulo"
+      }
+    }
+  },
+  {
+    "id": 950254,
+    "date": "16/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3947,
+        "name": "Santos"
+      },
+      "away": {
+        "id": 3946,
+        "name": "Flamengo"
+      }
+    }
+  },
+  {
+    "id": 950253,
+    "date": "16/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3948,
+        "name": "Palmeiras"
+      },
+      "away": {
+        "id": 3984,
+        "name": "Mirassol"
+      }
+    }
+  },
+  {
+    "id": 950252,
+    "date": "16/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3954,
+        "name": "Botafogo"
+      },
+      "away": {
+        "id": 3969,
+        "name": "Vitoria"
+      }
+    }
+  },
+  {
+    "id": 950251,
+    "date": "16/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3344,
+        "name": "Fluminense"
+      },
+      "away": {
+        "id": 3956,
+        "name": "Cruzeiro"
+      }
+    }
+  },
+  {
+    "id": 950260,
+    "date": "16/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3963,
+        "name": "Juventude"
+      },
+      "away": {
+        "id": 3952,
+        "name": "Vasco da Gama"
+      }
+    }
+  },
+  {
+    "id": 950258,
+    "date": "16/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 2810,
+        "name": "Bahia"
+      },
+      "away": {
+        "id": 2894,
+        "name": "Internacional"
+      }
+    }
+  },
+  {
+    "id": 950262,
+    "date": "19/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3952,
+        "name": "Vasco da Gama"
+      },
+      "away": {
+        "id": 3207,
+        "name": "Gremio"
+      }
+    }
+  },
+  {
+    "id": 950261,
+    "date": "19/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3946,
+        "name": "Flamengo"
+      },
+      "away": {
+        "id": 3344,
+        "name": "Fluminense"
+      }
+    }
+  },
+  {
+    "id": 950270,
+    "date": "19/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3961,
+        "name": "Sport Recife"
+      },
+      "away": {
+        "id": 3954,
+        "name": "Botafogo"
+      }
+    }
+  },
+  {
+    "id": 950269,
+    "date": "19/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3950,
+        "name": "Fortaleza"
+      },
+      "away": {
+        "id": 2810,
+        "name": "Bahia"
+      }
+    }
+  },
+  {
+    "id": 950268,
+    "date": "19/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3969,
+        "name": "Vitoria"
+      },
+      "away": {
+        "id": 3222,
+        "name": "RB Bragantino"
+      }
+    }
+  },
+  {
+    "id": 950267,
+    "date": "19/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 2894,
+        "name": "Internacional"
+      },
+      "away": {
+        "id": 3955,
+        "name": "Ceara"
+      }
+    }
+  },
+  {
+    "id": 950266,
+    "date": "19/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3956,
+        "name": "Cruzeiro"
+      },
+      "away": {
+        "id": 3963,
+        "name": "Juventude"
+      }
+    }
+  },
+  {
+    "id": 950265,
+    "date": "19/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3984,
+        "name": "Mirassol"
+      },
+      "away": {
+        "id": 3947,
+        "name": "Santos"
+      }
+    }
+  },
+  {
+    "id": 950264,
+    "date": "19/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3067,
+        "name": "Sao Paulo"
+      },
+      "away": {
+        "id": 3949,
+        "name": "Corinthians"
+      }
+    }
+  },
+  {
+    "id": 950263,
+    "date": "19/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3948,
+        "name": "Palmeiras"
+      },
+      "away": {
+        "id": 3953,
+        "name": "Atletico Mineiro"
+      }
+    }
+  },
+  {
+    "id": 950274,
+    "date": "23/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3947,
+        "name": "Santos"
+      },
+      "away": {
+        "id": 2894,
+        "name": "Internacional"
+      }
+    }
+  },
+  {
+    "id": 950277,
+    "date": "23/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3207,
+        "name": "Gremio"
+      },
+      "away": {
+        "id": 3954,
+        "name": "Botafogo"
+      }
+    }
+  },
+  {
+    "id": 950276,
+    "date": "23/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3953,
+        "name": "Atletico Mineiro"
+      },
+      "away": {
+        "id": 3950,
+        "name": "Fortaleza"
+      }
+    }
+  },
+  {
+    "id": 950280,
+    "date": "23/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3963,
+        "name": "Juventude"
+      },
+      "away": {
+        "id": 3067,
+        "name": "Sao Paulo"
+      }
+    }
+  },
+  {
+    "id": 950271,
+    "date": "23/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3344,
+        "name": "Fluminense"
+      },
+      "away": {
+        "id": 3948,
+        "name": "Palmeiras"
+      }
+    }
+  },
+  {
+    "id": 950272,
+    "date": "23/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3952,
+        "name": "Vasco da Gama"
+      },
+      "away": {
+        "id": 2810,
+        "name": "Bahia"
+      }
+    }
+  },
+  {
+    "id": 950279,
+    "date": "23/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3955,
+        "name": "Ceara"
+      },
+      "away": {
+        "id": 3984,
+        "name": "Mirassol"
+      }
+    }
+  },
+  {
+    "id": 950273,
+    "date": "23/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3949,
+        "name": "Corinthians"
+      },
+      "away": {
+        "id": 3956,
+        "name": "Cruzeiro"
+      }
+    }
+  },
+  {
+    "id": 950278,
+    "date": "23/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3969,
+        "name": "Vitoria"
+      },
+      "away": {
+        "id": 3961,
+        "name": "Sport Recife"
+      }
+    }
+  },
+  {
+    "id": 950275,
+    "date": "23/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3222,
+        "name": "RB Bragantino"
+      },
+      "away": {
+        "id": 3946,
+        "name": "Flamengo"
+      }
+    }
+  },
+  {
+    "id": 950284,
+    "date": "26/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3067,
+        "name": "Sao Paulo"
+      },
+      "away": {
+        "id": 3344,
+        "name": "Fluminense"
+      }
+    }
+  },
+  {
+    "id": 950282,
+    "date": "26/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3954,
+        "name": "Botafogo"
+      },
+      "away": {
+        "id": 3949,
+        "name": "Corinthians"
+      }
+    }
+  },
+  {
+    "id": 950281,
+    "date": "26/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3946,
+        "name": "Flamengo"
+      },
+      "away": {
+        "id": 3953,
+        "name": "Atletico Mineiro"
+      }
+    }
+  },
+  {
+    "id": 950290,
+    "date": "26/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3961,
+        "name": "Sport Recife"
+      },
+      "away": {
+        "id": 3947,
+        "name": "Santos"
+      }
+    }
+  },
+  {
+    "id": 950289,
+    "date": "26/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3950,
+        "name": "Fortaleza"
+      },
+      "away": {
+        "id": 3222,
+        "name": "RB Bragantino"
+      }
+    }
+  },
+  {
+    "id": 950288,
+    "date": "26/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 2810,
+        "name": "Bahia"
+      },
+      "away": {
+        "id": 3963,
+        "name": "Juventude"
+      }
+    }
+  },
+  {
+    "id": 950287,
+    "date": "26/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 2894,
+        "name": "Internacional"
+      },
+      "away": {
+        "id": 3952,
+        "name": "Vasco da Gama"
+      }
+    }
+  },
+  {
+    "id": 950286,
+    "date": "26/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3956,
+        "name": "Cruzeiro"
+      },
+      "away": {
+        "id": 3955,
+        "name": "Ceara"
+      }
+    }
+  },
+  {
+    "id": 950285,
+    "date": "26/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3984,
+        "name": "Mirassol"
+      },
+      "away": {
+        "id": 3969,
+        "name": "Vitoria"
+      }
+    }
+  },
+  {
+    "id": 950283,
+    "date": "26/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3948,
+        "name": "Palmeiras"
+      },
+      "away": {
+        "id": 3207,
+        "name": "Gremio"
+      }
+    }
+  },
+  {
+    "id": 950295,
+    "date": "02/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3984,
+        "name": "Mirassol"
+      },
+      "away": {
+        "id": 3952,
+        "name": "Vasco da Gama"
+      }
+    }
+  },
+  {
+    "id": 950291,
+    "date": "02/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3344,
+        "name": "Fluminense"
+      },
+      "away": {
+        "id": 3207,
+        "name": "Gremio"
+      }
+    }
+  },
+  {
+    "id": 950292,
+    "date": "02/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3954,
+        "name": "Botafogo"
+      },
+      "away": {
+        "id": 3956,
+        "name": "Cruzeiro"
+      }
+    }
+  },
+  {
+    "id": 950293,
+    "date": "02/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3949,
+        "name": "Corinthians"
+      },
+      "away": {
+        "id": 3950,
+        "name": "Fortaleza"
+      }
+    }
+  },
+  {
+    "id": 950294,
+    "date": "02/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3947,
+        "name": "Santos"
+      },
+      "away": {
+        "id": 3963,
+        "name": "Juventude"
+      }
+    }
+  },
+  {
+    "id": 950296,
+    "date": "02/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3953,
+        "name": "Atletico Mineiro"
+      },
+      "away": {
+        "id": 3222,
+        "name": "RB Bragantino"
+      }
+    }
+  },
+  {
+    "id": 950297,
+    "date": "02/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 2894,
+        "name": "Internacional"
+      },
+      "away": {
+        "id": 3067,
+        "name": "Sao Paulo"
+      }
+    }
+  },
+  {
+    "id": 950298,
+    "date": "02/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3969,
+        "name": "Vitoria"
+      },
+      "away": {
+        "id": 3948,
+        "name": "Palmeiras"
+      }
+    }
+  },
+  {
+    "id": 950299,
+    "date": "02/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3955,
+        "name": "Ceara"
+      },
+      "away": {
+        "id": 3946,
+        "name": "Flamengo"
+      }
+    }
+  },
+  {
+    "id": 950300,
+    "date": "02/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3961,
+        "name": "Sport Recife"
+      },
+      "away": {
+        "id": 2810,
+        "name": "Bahia"
+      }
+    }
+  },
+  {
+    "id": 950305,
+    "date": "09/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3222,
+        "name": "RB Bragantino"
+      },
+      "away": {
+        "id": 2894,
+        "name": "Internacional"
+      }
+    }
+  },
+  {
+    "id": 950303,
+    "date": "09/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3948,
+        "name": "Palmeiras"
+      },
+      "away": {
+        "id": 3955,
+        "name": "Ceara"
+      }
+    }
+  },
+  {
+    "id": 950306,
+    "date": "09/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3956,
+        "name": "Cruzeiro"
+      },
+      "away": {
+        "id": 3947,
+        "name": "Santos"
+      }
+    }
+  },
+  {
+    "id": 950309,
+    "date": "09/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3950,
+        "name": "Fortaleza"
+      },
+      "away": {
+        "id": 3954,
+        "name": "Botafogo"
+      }
+    }
+  },
+  {
+    "id": 950310,
+    "date": "09/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3963,
+        "name": "Juventude"
+      },
+      "away": {
+        "id": 3949,
+        "name": "Corinthians"
+      }
+    }
+  },
+  {
+    "id": 950302,
+    "date": "09/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3952,
+        "name": "Vasco da Gama"
+      },
+      "away": {
+        "id": 3953,
+        "name": "Atletico Mineiro"
+      }
+    }
+  },
+  {
+    "id": 950307,
+    "date": "09/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3207,
+        "name": "Gremio"
+      },
+      "away": {
+        "id": 3961,
+        "name": "Sport Recife"
+      }
+    }
+  },
+  {
+    "id": 950308,
+    "date": "09/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 2810,
+        "name": "Bahia"
+      },
+      "away": {
+        "id": 3344,
+        "name": "Fluminense"
+      }
+    }
+  },
+  {
+    "id": 950301,
+    "date": "09/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3946,
+        "name": "Flamengo"
+      },
+      "away": {
+        "id": 3984,
+        "name": "Mirassol"
+      }
+    }
+  },
+  {
+    "id": 950304,
+    "date": "09/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3067,
+        "name": "Sao Paulo"
+      },
+      "away": {
+        "id": 3969,
+        "name": "Vitoria"
+      }
+    }
+  },
+  {
+    "id": 950312,
+    "date": "16/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3954,
+        "name": "Botafogo"
+      },
+      "away": {
+        "id": 3948,
+        "name": "Palmeiras"
+      }
+    }
+  },
+  {
+    "id": 950314,
+    "date": "16/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3947,
+        "name": "Santos"
+      },
+      "away": {
+        "id": 3952,
+        "name": "Vasco da Gama"
+      }
+    }
+  },
+  {
+    "id": 950319,
+    "date": "16/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3955,
+        "name": "Ceara"
+      },
+      "away": {
+        "id": 3222,
+        "name": "RB Bragantino"
+      }
+    }
+  },
+  {
+    "id": 950318,
+    "date": "16/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3969,
+        "name": "Vitoria"
+      },
+      "away": {
+        "id": 3963,
+        "name": "Juventude"
+      }
+    }
+  },
+  {
+    "id": 950320,
+    "date": "16/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3961,
+        "name": "Sport Recife"
+      },
+      "away": {
+        "id": 3067,
+        "name": "Sao Paulo"
+      }
+    }
+  },
+  {
+    "id": 950315,
+    "date": "16/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3984,
+        "name": "Mirassol"
+      },
+      "away": {
+        "id": 3956,
+        "name": "Cruzeiro"
+      }
+    }
+  },
+  {
+    "id": 950316,
+    "date": "16/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3953,
+        "name": "Atletico Mineiro"
+      },
+      "away": {
+        "id": 3207,
+        "name": "Gremio"
+      }
+    }
+  },
+  {
+    "id": 950311,
+    "date": "16/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3344,
+        "name": "Fluminense"
+      },
+      "away": {
+        "id": 3950,
+        "name": "Fortaleza"
+      }
+    }
+  },
+  {
+    "id": 950317,
+    "date": "16/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 2894,
+        "name": "Internacional"
+      },
+      "away": {
+        "id": 3946,
+        "name": "Flamengo"
+      }
+    }
+  },
+  {
+    "id": 950313,
+    "date": "16/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3949,
+        "name": "Corinthians"
+      },
+      "away": {
+        "id": 2810,
+        "name": "Bahia"
+      }
+    }
+  },
+  {
+    "id": 950322,
+    "date": "23/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3952,
+        "name": "Vasco da Gama"
+      },
+      "away": {
+        "id": 3949,
+        "name": "Corinthians"
+      }
+    }
+  },
+  {
+    "id": 950330,
+    "date": "23/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3963,
+        "name": "Juventude"
+      },
+      "away": {
+        "id": 3954,
+        "name": "Botafogo"
+      }
+    }
+  },
+  {
+    "id": 950329,
+    "date": "23/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3950,
+        "name": "Fortaleza"
+      },
+      "away": {
+        "id": 3984,
+        "name": "Mirassol"
+      }
+    }
+  },
+  {
+    "id": 950328,
+    "date": "23/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 2810,
+        "name": "Bahia"
+      },
+      "away": {
+        "id": 3947,
+        "name": "Santos"
+      }
+    }
+  },
+  {
+    "id": 950327,
+    "date": "23/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3207,
+        "name": "Gremio"
+      },
+      "away": {
+        "id": 3955,
+        "name": "Ceara"
+      }
+    }
+  },
+  {
+    "id": 950326,
+    "date": "23/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3956,
+        "name": "Cruzeiro"
+      },
+      "away": {
+        "id": 2894,
+        "name": "Internacional"
+      }
+    }
+  },
+  {
+    "id": 950325,
+    "date": "23/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3222,
+        "name": "RB Bragantino"
+      },
+      "away": {
+        "id": 3344,
+        "name": "Fluminense"
+      }
+    }
+  },
+  {
+    "id": 950321,
+    "date": "23/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3946,
+        "name": "Flamengo"
+      },
+      "away": {
+        "id": 3969,
+        "name": "Vitoria"
+      }
+    }
+  },
+  {
+    "id": 950323,
+    "date": "23/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3948,
+        "name": "Palmeiras"
+      },
+      "away": {
+        "id": 3961,
+        "name": "Sport Recife"
+      }
+    }
+  },
+  {
+    "id": 950324,
+    "date": "23/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3067,
+        "name": "Sao Paulo"
+      },
+      "away": {
+        "id": 3953,
+        "name": "Atletico Mineiro"
+      }
+    }
+  },
+  {
+    "id": 950331,
+    "date": "30/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3946,
+        "name": "Flamengo"
+      },
+      "away": {
+        "id": 3207,
+        "name": "Gremio"
+      }
+    }
+  },
+  {
+    "id": 950332,
+    "date": "30/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3954,
+        "name": "Botafogo"
+      },
+      "away": {
+        "id": 3222,
+        "name": "RB Bragantino"
+      }
+    }
+  },
+  {
+    "id": 950333,
+    "date": "30/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3949,
+        "name": "Corinthians"
+      },
+      "away": {
+        "id": 3948,
+        "name": "Palmeiras"
+      }
+    }
+  },
+  {
+    "id": 950334,
+    "date": "30/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3947,
+        "name": "Santos"
+      },
+      "away": {
+        "id": 3344,
+        "name": "Fluminense"
+      }
+    }
+  },
+  {
+    "id": 950335,
+    "date": "30/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3984,
+        "name": "Mirassol"
+      },
+      "away": {
+        "id": 2810,
+        "name": "Bahia"
+      }
+    }
+  },
+  {
+    "id": 950336,
+    "date": "30/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3956,
+        "name": "Cruzeiro"
+      },
+      "away": {
+        "id": 3067,
+        "name": "Sao Paulo"
+      }
+    }
+  },
+  {
+    "id": 950337,
+    "date": "30/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 2894,
+        "name": "Internacional"
+      },
+      "away": {
+        "id": 3950,
+        "name": "Fortaleza"
+      }
+    }
+  },
+  {
+    "id": 950338,
+    "date": "30/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3969,
+        "name": "Vitoria"
+      },
+      "away": {
+        "id": 3953,
+        "name": "Atletico Mineiro"
+      }
+    }
+  },
+  {
+    "id": 950339,
+    "date": "30/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3955,
+        "name": "Ceara"
+      },
+      "away": {
+        "id": 3963,
+        "name": "Juventude"
+      }
+    }
+  },
+  {
+    "id": 950340,
+    "date": "30/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3961,
+        "name": "Sport Recife"
+      },
+      "away": {
+        "id": 3952,
+        "name": "Vasco da Gama"
+      }
+    }
+  },
+  {
+    "id": 950883,
+    "date": "08/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3962,
+        "name": "America Mineiro"
+      },
+      "away": {
+        "id": 5498,
+        "name": "Athletic Club"
+      }
+    }
+  },
+  {
+    "id": 950877,
+    "date": "08/07/2025",
+    "time": "22:30",
+    "teams": {
+      "home": {
+        "id": 3951,
+        "name": "Goias"
+      },
+      "away": {
+        "id": 3975,
+        "name": "Criciuma"
+      }
+    }
+  },
+  {
+    "id": 950889,
+    "date": "11/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 2751,
+        "name": "Paysandu"
+      },
+      "away": {
+        "id": 3960,
+        "name": "Atletico Goianiense"
+      }
+    }
+  },
+  {
+    "id": 950892,
+    "date": "11/07/2025",
+    "time": "00:35",
+    "teams": {
+      "home": {
+        "id": 3965,
+        "name": "CRB"
+      },
+      "away": {
+        "id": 2815,
+        "name": "Coritiba"
+      }
+    }
+  },
+  {
+    "id": 950887,
+    "date": "11/07/2025",
+    "time": "22:00",
+    "teams": {
+      "home": {
+        "id": 3976,
+        "name": "Vila Nova"
+      },
+      "away": {
+        "id": 3967,
+        "name": "Operario PR"
+      }
+    }
+  },
+  {
+    "id": 950894,
+    "date": "12/07/2025",
+    "time": "19:00",
+    "teams": {
+      "home": {
+        "id": 3983,
+        "name": "Novorizontino"
+      },
+      "away": {
+        "id": 3962,
+        "name": "America Mineiro"
+      }
+    }
+  },
+  {
+    "id": 950886,
+    "date": "12/07/2025",
+    "time": "23:30",
+    "teams": {
+      "home": {
+        "id": 2805,
+        "name": "Athletico Paranaense"
+      },
+      "away": {
+        "id": 3951,
+        "name": "Goias"
+      }
+    }
+  },
+  {
+    "id": 950890,
+    "date": "13/07/2025",
+    "time": "21:30",
+    "teams": {
+      "home": {
+        "id": 3958,
+        "name": "Chapecoense"
+      },
+      "away": {
+        "id": 3979,
+        "name": "Remo"
+      }
+    }
+  },
+  {
+    "id": 950891,
+    "date": "13/07/2025",
+    "time": "23:30",
+    "teams": {
+      "home": {
+        "id": 3975,
+        "name": "Criciuma"
+      },
+      "away": {
+        "id": 5288,
+        "name": "Ferroviaria"
+      }
+    }
+  },
+  {
+    "id": 950893,
+    "date": "14/07/2025",
+    "time": "22:00",
+    "teams": {
+      "home": {
+        "id": 5498,
+        "name": "Athletic Club"
+      },
+      "away": {
+        "id": 3959,
+        "name": "Avai"
+      }
+    }
+  },
+  {
+    "id": 950895,
+    "date": "15/07/2025",
+    "time": "00:30",
+    "teams": {
+      "home": {
+        "id": 3966,
+        "name": "Botafogo SP"
+      },
+      "away": {
+        "id": 3210,
+        "name": "Volta Redonda"
+      }
+    }
+  },
+  {
+    "id": 950888,
+    "date": "15/07/2025",
+    "time": "22:30",
+    "teams": {
+      "home": {
+        "id": 3497,
+        "name": "Cuiaba"
+      },
+      "away": {
+        "id": 11791,
+        "name": "Amazonas"
+      }
+    }
+  },
+  {
+    "id": 950904,
+    "date": "18/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 5288,
+        "name": "Ferroviaria"
+      },
+      "away": {
+        "id": 5498,
+        "name": "Athletic Club"
+      }
+    }
+  },
+  {
+    "id": 950901,
+    "date": "18/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3967,
+        "name": "Operario PR"
+      },
+      "away": {
+        "id": 3965,
+        "name": "CRB"
+      }
+    }
+  },
+  {
+    "id": 950899,
+    "date": "18/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3979,
+        "name": "Remo"
+      },
+      "away": {
+        "id": 3983,
+        "name": "Novorizontino"
+      }
+    }
+  },
+  {
+    "id": 950898,
+    "date": "18/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3960,
+        "name": "Atletico Goianiense"
+      },
+      "away": {
+        "id": 3975,
+        "name": "Criciuma"
+      }
+    }
+  },
+  {
+    "id": 950903,
+    "date": "18/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3962,
+        "name": "America Mineiro"
+      },
+      "away": {
+        "id": 3958,
+        "name": "Chapecoense"
+      }
+    }
+  },
+  {
+    "id": 950902,
+    "date": "18/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 11791,
+        "name": "Amazonas"
+      },
+      "away": {
+        "id": 3966,
+        "name": "Botafogo SP"
+      }
+    }
+  },
+  {
+    "id": 950905,
+    "date": "18/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3210,
+        "name": "Volta Redonda"
+      },
+      "away": {
+        "id": 2805,
+        "name": "Athletico Paranaense"
+      }
+    }
+  },
+  {
+    "id": 950900,
+    "date": "18/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3959,
+        "name": "Avai"
+      },
+      "away": {
+        "id": 3976,
+        "name": "Vila Nova"
+      }
+    }
+  },
+  {
+    "id": 950896,
+    "date": "18/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 2815,
+        "name": "Coritiba"
+      },
+      "away": {
+        "id": 2751,
+        "name": "Paysandu"
+      }
+    }
+  },
+  {
+    "id": 950897,
+    "date": "18/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3951,
+        "name": "Goias"
+      },
+      "away": {
+        "id": 3497,
+        "name": "Cuiaba"
+      }
+    }
+  },
+  {
+    "id": 950909,
+    "date": "22/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3979,
+        "name": "Remo"
+      },
+      "away": {
+        "id": 3959,
+        "name": "Avai"
+      }
+    }
+  },
+  {
+    "id": 950906,
+    "date": "22/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 2805,
+        "name": "Athletico Paranaense"
+      },
+      "away": {
+        "id": 5288,
+        "name": "Ferroviaria"
+      }
+    }
+  },
+  {
+    "id": 950911,
+    "date": "22/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3967,
+        "name": "Operario PR"
+      },
+      "away": {
+        "id": 3960,
+        "name": "Atletico Goianiense"
+      }
+    }
+  },
+  {
+    "id": 950914,
+    "date": "22/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3983,
+        "name": "Novorizontino"
+      },
+      "away": {
+        "id": 3951,
+        "name": "Goias"
+      }
+    }
+  },
+  {
+    "id": 950910,
+    "date": "22/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3958,
+        "name": "Chapecoense"
+      },
+      "away": {
+        "id": 3210,
+        "name": "Volta Redonda"
+      }
+    }
+  },
+  {
+    "id": 950907,
+    "date": "22/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3976,
+        "name": "Vila Nova"
+      },
+      "away": {
+        "id": 3965,
+        "name": "CRB"
+      }
+    }
+  },
+  {
+    "id": 950913,
+    "date": "22/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 5498,
+        "name": "Athletic Club"
+      },
+      "away": {
+        "id": 2815,
+        "name": "Coritiba"
+      }
+    }
+  },
+  {
+    "id": 950908,
+    "date": "22/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3497,
+        "name": "Cuiaba"
+      },
+      "away": {
+        "id": 3962,
+        "name": "America Mineiro"
+      }
+    }
+  },
+  {
+    "id": 950915,
+    "date": "22/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3966,
+        "name": "Botafogo SP"
+      },
+      "away": {
+        "id": 3975,
+        "name": "Criciuma"
+      }
+    }
+  },
+  {
+    "id": 950912,
+    "date": "22/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 11791,
+        "name": "Amazonas"
+      },
+      "away": {
+        "id": 2751,
+        "name": "Paysandu"
+      }
+    }
+  },
+  {
+    "id": 950916,
+    "date": "25/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 2815,
+        "name": "Coritiba"
+      },
+      "away": {
+        "id": 11791,
+        "name": "Amazonas"
+      }
+    }
+  },
+  {
+    "id": 950920,
+    "date": "25/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3959,
+        "name": "Avai"
+      },
+      "away": {
+        "id": 3966,
+        "name": "Botafogo SP"
+      }
+    }
+  },
+  {
+    "id": 950919,
+    "date": "25/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 2751,
+        "name": "Paysandu"
+      },
+      "away": {
+        "id": 5498,
+        "name": "Athletic Club"
+      }
+    }
+  },
+  {
+    "id": 950918,
+    "date": "25/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3960,
+        "name": "Atletico Goianiense"
+      },
+      "away": {
+        "id": 3958,
+        "name": "Chapecoense"
+      }
+    }
+  },
+  {
+    "id": 950923,
+    "date": "25/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3962,
+        "name": "America Mineiro"
+      },
+      "away": {
+        "id": 2805,
+        "name": "Athletico Paranaense"
+      }
+    }
+  },
+  {
+    "id": 950925,
+    "date": "25/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3210,
+        "name": "Volta Redonda"
+      },
+      "away": {
+        "id": 3976,
+        "name": "Vila Nova"
+      }
+    }
+  },
+  {
+    "id": 950922,
+    "date": "25/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3965,
+        "name": "CRB"
+      },
+      "away": {
+        "id": 3983,
+        "name": "Novorizontino"
+      }
+    }
+  },
+  {
+    "id": 950924,
+    "date": "25/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 5288,
+        "name": "Ferroviaria"
+      },
+      "away": {
+        "id": 3967,
+        "name": "Operario PR"
+      }
+    }
+  },
+  {
+    "id": 950917,
+    "date": "25/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3951,
+        "name": "Goias"
+      },
+      "away": {
+        "id": 3979,
+        "name": "Remo"
+      }
+    }
+  },
+  {
+    "id": 950921,
+    "date": "25/07/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3975,
+        "name": "Criciuma"
+      },
+      "away": {
+        "id": 3497,
+        "name": "Cuiaba"
+      }
+    }
+  },
+  {
+    "id": 950926,
+    "date": "01/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 2805,
+        "name": "Athletico Paranaense"
+      },
+      "away": {
+        "id": 2751,
+        "name": "Paysandu"
+      }
+    }
+  },
+  {
+    "id": 950930,
+    "date": "01/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3958,
+        "name": "Chapecoense"
+      },
+      "away": {
+        "id": 3965,
+        "name": "CRB"
+      }
+    }
+  },
+  {
+    "id": 950932,
+    "date": "01/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 11791,
+        "name": "Amazonas"
+      },
+      "away": {
+        "id": 3951,
+        "name": "Goias"
+      }
+    }
+  },
+  {
+    "id": 950935,
+    "date": "01/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3966,
+        "name": "Botafogo SP"
+      },
+      "away": {
+        "id": 3962,
+        "name": "America Mineiro"
+      }
+    }
+  },
+  {
+    "id": 950934,
+    "date": "01/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3983,
+        "name": "Novorizontino"
+      },
+      "away": {
+        "id": 3959,
+        "name": "Avai"
+      }
+    }
+  },
+  {
+    "id": 950931,
+    "date": "01/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3967,
+        "name": "Operario PR"
+      },
+      "away": {
+        "id": 3975,
+        "name": "Criciuma"
+      }
+    }
+  },
+  {
+    "id": 950929,
+    "date": "01/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3979,
+        "name": "Remo"
+      },
+      "away": {
+        "id": 5288,
+        "name": "Ferroviaria"
+      }
+    }
+  },
+  {
+    "id": 950927,
+    "date": "01/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3976,
+        "name": "Vila Nova"
+      },
+      "away": {
+        "id": 2815,
+        "name": "Coritiba"
+      }
+    }
+  },
+  {
+    "id": 950928,
+    "date": "01/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3497,
+        "name": "Cuiaba"
+      },
+      "away": {
+        "id": 3210,
+        "name": "Volta Redonda"
+      }
+    }
+  },
+  {
+    "id": 950933,
+    "date": "01/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 5498,
+        "name": "Athletic Club"
+      },
+      "away": {
+        "id": 3960,
+        "name": "Atletico Goianiense"
+      }
+    }
+  },
+  {
+    "id": 950940,
+    "date": "08/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3959,
+        "name": "Avai"
+      },
+      "away": {
+        "id": 3497,
+        "name": "Cuiaba"
+      }
+    }
+  },
+  {
+    "id": 950942,
+    "date": "08/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3965,
+        "name": "CRB"
+      },
+      "away": {
+        "id": 5498,
+        "name": "Athletic Club"
+      }
+    }
+  },
+  {
+    "id": 950936,
+    "date": "08/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 2815,
+        "name": "Coritiba"
+      },
+      "away": {
+        "id": 3958,
+        "name": "Chapecoense"
+      }
+    }
+  },
+  {
+    "id": 950941,
+    "date": "08/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3975,
+        "name": "Criciuma"
+      },
+      "away": {
+        "id": 2805,
+        "name": "Athletico Paranaense"
+      }
+    }
+  },
+  {
+    "id": 950937,
+    "date": "08/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3951,
+        "name": "Goias"
+      },
+      "away": {
+        "id": 3967,
+        "name": "Operario PR"
+      }
+    }
+  },
+  {
+    "id": 950938,
+    "date": "08/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3960,
+        "name": "Atletico Goianiense"
+      },
+      "away": {
+        "id": 3966,
+        "name": "Botafogo SP"
+      }
+    }
+  },
+  {
+    "id": 950939,
+    "date": "08/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 2751,
+        "name": "Paysandu"
+      },
+      "away": {
+        "id": 3976,
+        "name": "Vila Nova"
+      }
+    }
+  },
+  {
+    "id": 950943,
+    "date": "08/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3962,
+        "name": "America Mineiro"
+      },
+      "away": {
+        "id": 3979,
+        "name": "Remo"
+      }
+    }
+  },
+  {
+    "id": 950944,
+    "date": "08/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 5288,
+        "name": "Ferroviaria"
+      },
+      "away": {
+        "id": 11791,
+        "name": "Amazonas"
+      }
+    }
+  },
+  {
+    "id": 950945,
+    "date": "08/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3210,
+        "name": "Volta Redonda"
+      },
+      "away": {
+        "id": 3983,
+        "name": "Novorizontino"
+      }
+    }
+  },
+  {
+    "id": 950946,
+    "date": "15/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 2805,
+        "name": "Athletico Paranaense"
+      },
+      "away": {
+        "id": 3497,
+        "name": "Cuiaba"
+      }
+    }
+  },
+  {
+    "id": 950947,
+    "date": "15/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3976,
+        "name": "Vila Nova"
+      },
+      "away": {
+        "id": 3951,
+        "name": "Goias"
+      }
+    }
+  },
+  {
+    "id": 950948,
+    "date": "15/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3960,
+        "name": "Atletico Goianiense"
+      },
+      "away": {
+        "id": 5288,
+        "name": "Ferroviaria"
+      }
+    }
+  },
+  {
+    "id": 950949,
+    "date": "15/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3979,
+        "name": "Remo"
+      },
+      "away": {
+        "id": 3966,
+        "name": "Botafogo SP"
+      }
+    }
+  },
+  {
+    "id": 950950,
+    "date": "15/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3958,
+        "name": "Chapecoense"
+      },
+      "away": {
+        "id": 2751,
+        "name": "Paysandu"
+      }
+    }
+  },
+  {
+    "id": 950951,
+    "date": "15/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3967,
+        "name": "Operario PR"
+      },
+      "away": {
+        "id": 3959,
+        "name": "Avai"
+      }
+    }
+  },
+  {
+    "id": 950952,
+    "date": "15/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 11791,
+        "name": "Amazonas"
+      },
+      "away": {
+        "id": 3962,
+        "name": "America Mineiro"
+      }
+    }
+  },
+  {
+    "id": 950953,
+    "date": "15/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 5498,
+        "name": "Athletic Club"
+      },
+      "away": {
+        "id": 3975,
+        "name": "Criciuma"
+      }
+    }
+  },
+  {
+    "id": 950954,
+    "date": "15/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3983,
+        "name": "Novorizontino"
+      },
+      "away": {
+        "id": 2815,
+        "name": "Coritiba"
+      }
+    }
+  },
+  {
+    "id": 950955,
+    "date": "15/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3210,
+        "name": "Volta Redonda"
+      },
+      "away": {
+        "id": 3965,
+        "name": "CRB"
+      }
+    }
+  },
+  {
+    "id": 950964,
+    "date": "22/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 5288,
+        "name": "Ferroviaria"
+      },
+      "away": {
+        "id": 3210,
+        "name": "Volta Redonda"
+      }
+    }
+  },
+  {
+    "id": 950963,
+    "date": "22/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 5498,
+        "name": "Athletic Club"
+      },
+      "away": {
+        "id": 3958,
+        "name": "Chapecoense"
+      }
+    }
+  },
+  {
+    "id": 950962,
+    "date": "22/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3965,
+        "name": "CRB"
+      },
+      "away": {
+        "id": 2805,
+        "name": "Athletico Paranaense"
+      }
+    }
+  },
+  {
+    "id": 950961,
+    "date": "22/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3975,
+        "name": "Criciuma"
+      },
+      "away": {
+        "id": 3983,
+        "name": "Novorizontino"
+      }
+    }
+  },
+  {
+    "id": 950960,
+    "date": "22/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3959,
+        "name": "Avai"
+      },
+      "away": {
+        "id": 11791,
+        "name": "Amazonas"
+      }
+    }
+  },
+  {
+    "id": 950958,
+    "date": "22/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3497,
+        "name": "Cuiaba"
+      },
+      "away": {
+        "id": 3960,
+        "name": "Atletico Goianiense"
+      }
+    }
+  },
+  {
+    "id": 950959,
+    "date": "22/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 2751,
+        "name": "Paysandu"
+      },
+      "away": {
+        "id": 3967,
+        "name": "Operario PR"
+      }
+    }
+  },
+  {
+    "id": 950956,
+    "date": "22/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 2815,
+        "name": "Coritiba"
+      },
+      "away": {
+        "id": 3979,
+        "name": "Remo"
+      }
+    }
+  },
+  {
+    "id": 950957,
+    "date": "22/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3951,
+        "name": "Goias"
+      },
+      "away": {
+        "id": 3962,
+        "name": "America Mineiro"
+      }
+    }
+  },
+  {
+    "id": 950965,
+    "date": "22/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3966,
+        "name": "Botafogo SP"
+      },
+      "away": {
+        "id": 3976,
+        "name": "Vila Nova"
+      }
+    }
+  },
+  {
+    "id": 950966,
+    "date": "29/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 2805,
+        "name": "Athletico Paranaense"
+      },
+      "away": {
+        "id": 3983,
+        "name": "Novorizontino"
+      }
+    }
+  },
+  {
+    "id": 950975,
+    "date": "29/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3210,
+        "name": "Volta Redonda"
+      },
+      "away": {
+        "id": 5498,
+        "name": "Athletic Club"
+      }
+    }
+  },
+  {
+    "id": 950974,
+    "date": "29/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 5288,
+        "name": "Ferroviaria"
+      },
+      "away": {
+        "id": 3497,
+        "name": "Cuiaba"
+      }
+    }
+  },
+  {
+    "id": 950973,
+    "date": "29/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3962,
+        "name": "America Mineiro"
+      },
+      "away": {
+        "id": 3959,
+        "name": "Avai"
+      }
+    }
+  },
+  {
+    "id": 950972,
+    "date": "29/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3965,
+        "name": "CRB"
+      },
+      "away": {
+        "id": 2751,
+        "name": "Paysandu"
+      }
+    }
+  },
+  {
+    "id": 950971,
+    "date": "29/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3967,
+        "name": "Operario PR"
+      },
+      "away": {
+        "id": 2815,
+        "name": "Coritiba"
+      }
+    }
+  },
+  {
+    "id": 950970,
+    "date": "29/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3958,
+        "name": "Chapecoense"
+      },
+      "away": {
+        "id": 3976,
+        "name": "Vila Nova"
+      }
+    }
+  },
+  {
+    "id": 950968,
+    "date": "29/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3960,
+        "name": "Atletico Goianiense"
+      },
+      "away": {
+        "id": 11791,
+        "name": "Amazonas"
+      }
+    }
+  },
+  {
+    "id": 950969,
+    "date": "29/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3979,
+        "name": "Remo"
+      },
+      "away": {
+        "id": 3975,
+        "name": "Criciuma"
+      }
+    }
+  },
+  {
+    "id": 950967,
+    "date": "29/08/2025",
+    "time": "00:00",
+    "teams": {
+      "home": {
+        "id": 3951,
+        "name": "Goias"
+      },
+      "away": {
+        "id": 3966,
+        "name": "Botafogo SP"
+      }
+    }
+  },
+  {
+    "id": 953932,
+    "date": "29/07/2025",
+    "time": "22:00",
+    "teams": {
+      "home": {
+        "id": 3949,
+        "name": "Corinthians"
+      },
+      "away": {
+        "id": 3948,
+        "name": "Palmeiras"
+      }
+    }
+  },
+  {
+    "id": 953922,
+    "date": "29/07/2025",
+    "time": "22:00",
+    "teams": {
+      "home": {
+        "id": 3946,
+        "name": "Flamengo"
+      },
+      "away": {
+        "id": 3953,
+        "name": "Atletico Mineiro"
+      }
+    }
+  },
+  {
+    "id": 953928,
+    "date": "29/07/2025",
+    "time": "22:00",
+    "teams": {
+      "home": {
+        "id": 3956,
+        "name": "Cruzeiro"
+      },
+      "away": {
+        "id": 3965,
+        "name": "CRB"
+      }
+    }
+  },
+  {
+    "id": 953934,
+    "date": "29/07/2025",
+    "time": "22:00",
+    "teams": {
+      "home": {
+        "id": 3954,
+        "name": "Botafogo"
+      },
+      "away": {
+        "id": 3222,
+        "name": "RB Bragantino"
+      }
+    }
+  },
+  {
+    "id": 953930,
+    "date": "29/07/2025",
+    "time": "22:00",
+    "teams": {
+      "home": {
+        "id": 3957,
+        "name": "CSA"
+      },
+      "away": {
+        "id": 3952,
+        "name": "Vasco da Gama"
+      }
+    }
+  },
+  {
+    "id": 953926,
+    "date": "29/07/2025",
+    "time": "22:00",
+    "teams": {
+      "home": {
+        "id": 2894,
+        "name": "Internacional"
+      },
+      "away": {
+        "id": 3344,
+        "name": "Fluminense"
+      }
+    }
+  },
+  {
+    "id": 953924,
+    "date": "29/07/2025",
+    "time": "22:00",
+    "teams": {
+      "home": {
+        "id": 2810,
+        "name": "Bahia"
+      },
+      "away": {
+        "id": 5359,
+        "name": "Retro"
+      }
+    }
+  },
+  {
+    "id": 953920,
+    "date": "29/07/2025",
+    "time": "22:00",
+    "teams": {
+      "home": {
+        "id": 3067,
+        "name": "Sao Paulo"
+      },
+      "away": {
+        "id": 2805,
+        "name": "Athletico Paranaense"
+      }
+    }
+  },
+  {
+    "id": 953927,
+    "date": "05/08/2025",
+    "time": "22:00",
+    "teams": {
+      "home": {
+        "id": 3344,
+        "name": "Fluminense"
+      },
+      "away": {
+        "id": 2894,
+        "name": "Internacional"
+      }
+    }
+  },
+  {
+    "id": 953933,
+    "date": "05/08/2025",
+    "time": "22:00",
+    "teams": {
+      "home": {
+        "id": 3948,
+        "name": "Palmeiras"
+      },
+      "away": {
+        "id": 3949,
+        "name": "Corinthians"
+      }
+    }
+  },
+  {
+    "id": 953931,
+    "date": "05/08/2025",
+    "time": "22:00",
+    "teams": {
+      "home": {
+        "id": 3952,
+        "name": "Vasco da Gama"
+      },
+      "away": {
+        "id": 3957,
+        "name": "CSA"
+      }
+    }
+  },
+  {
+    "id": 953929,
+    "date": "05/08/2025",
+    "time": "22:00",
+    "teams": {
+      "home": {
+        "id": 3965,
+        "name": "CRB"
+      },
+      "away": {
+        "id": 3956,
+        "name": "Cruzeiro"
+      }
+    }
+  },
+  {
+    "id": 953935,
+    "date": "05/08/2025",
+    "time": "22:00",
+    "teams": {
+      "home": {
+        "id": 3222,
+        "name": "RB Bragantino"
+      },
+      "away": {
+        "id": 3954,
+        "name": "Botafogo"
+      }
+    }
+  },
+  {
+    "id": 953925,
+    "date": "05/08/2025",
+    "time": "22:00",
+    "teams": {
+      "home": {
+        "id": 5359,
+        "name": "Retro"
+      },
+      "away": {
+        "id": 2810,
+        "name": "Bahia"
+      }
+    }
+  },
+  {
+    "id": 953923,
+    "date": "05/08/2025",
+    "time": "22:00",
+    "teams": {
+      "home": {
+        "id": 3953,
+        "name": "Atletico Mineiro"
+      },
+      "away": {
+        "id": 3946,
+        "name": "Flamengo"
+      }
+    }
+  },
+  {
+    "id": 953921,
+    "date": "05/08/2025",
+    "time": "22:00",
+    "teams": {
+      "home": {
+        "id": 2805,
+        "name": "Athletico Paranaense"
+      },
+      "away": {
+        "id": 3067,
+        "name": "Sao Paulo"
+      }
+    }
+  }
+]

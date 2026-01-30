@@ -1,10 +1,12 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Veiculo } from 'src/modules/veiculo/veiculo.entity';
-import { In, Repository } from 'typeorm';
+import { DeleteResult, In, Repository } from 'typeorm';
 import { CreateUsuarioDto } from '../dto/create-usuario.dto';
 import { UpdateUsuarioDto } from '../dto/update-usuario.dto';
 import { Usuario } from '../usuario.entity';
+// 1. Importação necessária
+import { MailerService } from '@nestjs-modules/mailer';
 
 @Injectable()
 export class UsuarioService {
@@ -13,11 +15,20 @@ export class UsuarioService {
     private readonly usuarioRepository: Repository<Usuario>,
     @InjectRepository(Veiculo)
     private readonly veiculoRepository: Repository<Veiculo>,
-  ) {}
+    // 2. Injeção do serviço de e-mail
+    private readonly mailerService: MailerService,
+  ) { }
 
   async create(createUsuarioDto: CreateUsuarioDto): Promise<Usuario> {
-    const { veiculos, ...rest } = createUsuarioDto;
-    const usuario = this.usuarioRepository.create(rest);
+    const { veiculos, email, ...rest } = createUsuarioDto;
+
+    const existente = await this.usuarioRepository.findOne({
+      where: { email },
+    });
+    if (existente) {
+      throw new BadRequestException('Já existe um usuário com este e-mail. Faça login ou redefina sua senha');
+    }
+    const usuario = this.usuarioRepository.create({ ...rest, email });
 
     if (veiculos && veiculos.length > 0) {
       const veiculosEntities = await this.veiculoRepository.findBy({
@@ -26,7 +37,25 @@ export class UsuarioService {
       usuario.veiculos = veiculosEntities;
     }
 
-    return this.usuarioRepository.save(usuario);
+    // Salvamos o usuário numa variável para garantir que foi criado antes de enviar o e-mail
+    const novoUsuario = await this.usuarioRepository.save(usuario);
+
+    // 3. Lógica de Envio de E-mail de Boas-Vindas
+    try {
+      await this.mailerService.sendMail({
+        to: novoUsuario.email,
+        subject: 'Bem-vindo ao CaronaFC!',
+        template: 'boas-vindas', // Certifique-se de que o arquivo .hbs existe
+        context: {
+          nome: novoUsuario.nome_completo,
+        },
+      });
+    } catch (error) {
+      // Logamos o erro mas não impedimos o cadastro
+      console.error('Erro ao enviar e-mail de boas-vindas:', error);
+    }
+
+    return novoUsuario;
   }
 
   findAll(): Promise<Usuario[]> {
@@ -43,6 +72,40 @@ export class UsuarioService {
     }
     return usuario;
   }
+
+  async findOneByEmail(email: string): Promise<Usuario> {
+    const usuario = await this.usuarioRepository.findOne({
+      where: { email: email },
+      relations: ['veiculos'],
+    });
+    if (!usuario) {
+      throw new Error(`Usuário com email ${email} não encontrado`);
+    }
+    return usuario;
+  }
+
+  async findOneByNumber(numero: string): Promise<Usuario> {
+    const usuario = await this.usuarioRepository.findOne({
+      where: { numero: numero },
+      relations: ['veiculos'],
+    });
+    if (!usuario) {
+      throw new Error(`Usuário com nome ${numero} não encontrado`);
+    }
+    return usuario;
+  }
+
+  async findOneByPassword(senha: string): Promise<Usuario> {
+    const usuario = await this.usuarioRepository.findOne({
+      where: { senha: senha },
+      relations: ['veiculos'],
+    });
+    if (!usuario) {
+      throw new Error(`Usuário não encontrado`);
+    }
+    return usuario;
+  }
+
 
   async findOne(id: number): Promise<Usuario> {
     const usuario = await this.usuarioRepository.findOne({
@@ -61,7 +124,7 @@ export class UsuarioService {
   ): Promise<Usuario> {
     const usuario = await this.usuarioRepository.findOne({
       where: { id },
-      relations: ['veiculos', 'avaliacao'],
+      relations: ['veiculos', 'avaliacoes'],
     });
 
     if (!usuario) {
@@ -83,7 +146,8 @@ export class UsuarioService {
     return this.findOne(id);
   }
 
-  async remove(id: number): Promise<void> {
-    await this.usuarioRepository.delete(id);
+  async remove(id: number): Promise<DeleteResult> {
+    const result = await this.usuarioRepository.delete(id);
+    return result;
   }
 }
